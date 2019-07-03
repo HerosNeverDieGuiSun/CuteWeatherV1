@@ -37,4 +37,6 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.0.0'
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0-beta05'
+    implementation 'com.gyf.immersionbar:immersionbar-ktx:3.0.0-beta05'
 }

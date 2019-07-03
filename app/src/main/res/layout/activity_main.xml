@@ -36,9 +36,10 @@
                     app:defaultNavHost="true"
                     app:navGraph="@navigation/navigation"
                     android:layout_marginTop="16dp"/>
+
             <fragment
                     android:id="@+id/fragmentDaily"
-                    android:name="androidx.navigation.fragment.NavHostFragment"
+                    android:name="com.example.cuteweatherv1.ui.FragmentDaily"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_constraintLeft_toLeftOf="parent"

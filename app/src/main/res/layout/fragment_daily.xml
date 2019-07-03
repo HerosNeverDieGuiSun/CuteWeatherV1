@@ -2,9 +2,9 @@
 <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".ui.FragmentDaily">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        tools:context=".ui.FragmentDaily" android:background="@android:color/background_light">
 
     <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -13,6 +13,6 @@
             android:layout_centerInParent="true"
             app:cardCornerRadius="12dp"
             android:elevation="8dp"
-            android:translationZ="8dp"/>
+            />
 
 </FrameLayout>

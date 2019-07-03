@@ -7,13 +7,13 @@
         tools:context=".ui.FragmentAir">
 
     <androidx.cardview.widget.CardView
-            android:id="@+id/cv"
+            android:id="@+id/aircv"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             app:cardBackgroundColor="@android:color/background_light"
             android:layout_centerInParent="true"
             app:cardCornerRadius="12dp"
             android:elevation="8dp"
-            android:translationZ="8dp" android:layout_gravity="center"/>
+            />
 
 </FrameLayout>

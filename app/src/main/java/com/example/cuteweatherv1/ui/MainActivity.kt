@@ -1,32 +1,34 @@
 package com.example.cuteweatherv1.ui
 
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.WindowManager
+import android.view.Menu
+import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import com.example.cuteweatherv1.R
-import com.readystatesoftware.systembartint.SystemBarTintManager
+import com.gyf.immersionbar.ImmersionBar
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //applyKitKatTranslucency()
-    }
 
-    /*private fun applyKitKatTranslucency() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            setTranslucentStatus(true)
-            val mTintManager = SystemBarTintManager(this)
-            mTintManager.isStatusBarTintEnabled = true
-            //mTintManager.setStatusBarTintResource(R.color)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        toolbar.setOnMenuItemClickListener { item ->
+            when(item?.itemId) {
+                R.id.change_city -> {
+                    Toast.makeText(applicationContext, "更换城市", Toast.LENGTH_SHORT).show()
+                }
+            }
+            true
         }
+        ImmersionBar.with(this).statusBarColor(R.color.colorPrimary).init()
     }
 
-    private fun setTranslucentStatus(state : Boolean) {
-        val layoutParams = window.attributes
-
-    }*/
-
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
 }

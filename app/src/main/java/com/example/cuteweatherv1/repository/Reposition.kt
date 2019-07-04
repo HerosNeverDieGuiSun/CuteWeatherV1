@@ -7,22 +7,17 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class Reposition {
+
     object Holder {
         val INSTANCE = Reposition()
     }
     companion object {
         val instance = Holder.INSTANCE
+        const val KEY = "SAc5cXnjG7dhZBOf_"
+        const val BASEURL = "https://api.seniverse.com/"
+        const val AIRDAILY = "v3/air/daily.json"
     }
 
-    val retrofit = Retrofit.Builder()
-        .baseUrl("https://api.seniverse.com/")
-        .addConverterFactory(GsonConverterFactory.create()).build()
 
-    fun getBriefInfo(): BriefInfo? {
-
-        val service =retrofit.create(BriefService::class.java)
-        //service.getInfo("SAc5cXnjG7dhZBOf_", )
-        return null
-    }
 
 }

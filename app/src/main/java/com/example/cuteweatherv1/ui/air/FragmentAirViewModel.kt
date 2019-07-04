@@ -11,6 +11,10 @@ class FragmentAirViewModel : ViewModel() {
         "Hello world from section: $it"
     }
 
+    val airNum:LiveData<Int> = Transformations.map(_index){
+        it*10+50
+    }
+
     fun setIndex(index: Int) {
         _index.value = index
     }

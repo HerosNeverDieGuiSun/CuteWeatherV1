@@ -11,11 +11,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme.NoActionBar">
-<<<<<<< HEAD
-        <activity android:name=".ui.AirInfoActivity">
-=======
+
         <activity android:name=".ui.air.AirInfoActivity">
->>>>>>> 空气质量的切换
         </activity>
         <activity android:name=".ui.MainActivity">
             <intent-filter>

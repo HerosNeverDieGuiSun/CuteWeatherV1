@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.cuteweatherv1">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
             android:name=".WeatherApplication"
@@ -11,11 +14,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme.NoActionBar">
-<<<<<<< HEAD
-        <activity android:name=".ui.AirInfoActivity">
-=======
+
         <activity android:name=".ui.air.AirInfoActivity">
->>>>>>> 空气质量的切换
         </activity>
         <activity android:name=".ui.MainActivity">
             <intent-filter>

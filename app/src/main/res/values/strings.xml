@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CuteWeatherV1</string>
+    <string name="app_name">淘天气</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -10,4 +10,9 @@
     <string name="tab_text_5">周五</string>
     <string name="tab_text_6">周六</string>
     <string name="tab_text_7">周日</string>
+
+    <string name="today">今日</string>
+    <string name="high">H</string>
+    <string name="low">L</string>
+
 </resources>

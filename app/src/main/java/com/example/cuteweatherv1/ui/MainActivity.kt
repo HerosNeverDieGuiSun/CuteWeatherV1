@@ -9,16 +9,13 @@ import android.location.LocationListener
 import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.Settings
 import android.util.Log
 import android.view.Menu
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.content.PermissionChecker
 import com.example.cuteweatherv1.R
-import com.example.cuteweatherv1.location.MyLocation
+import com.example.cuteweatherv1.ui.city.CityMngActivity
 import com.gyf.immersionbar.ImmersionBar
 
 class MainActivity : AppCompatActivity() {
@@ -36,7 +33,10 @@ class MainActivity : AppCompatActivity() {
         toolbar.setOnMenuItemClickListener { item ->
             when(item?.itemId) {
                 R.id.change_city -> {
-                    Toast.makeText(applicationContext, "更换城市", Toast.LENGTH_SHORT).show()
+                    val intent = Intent()
+                    intent.setClass(applicationContext, CityMngActivity::class.java)
+
+                    startActivity(intent)
                 }
             }
             true
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         Log.e("mylog", location)
     }
 
-    private fun getLastKnownLocation(): String {
+    fun getLastKnownLocation(): String {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
             != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
@@ -57,6 +57,8 @@ class MainActivity : AppCompatActivity() {
         for (provider in providers) {
             val location = locationManager.getLastKnownLocation(provider)
             if (location != null) {
+                latitude = location.latitude
+                longitude = location.longitude
                 return "$longitude,$latitude"
             }
         }

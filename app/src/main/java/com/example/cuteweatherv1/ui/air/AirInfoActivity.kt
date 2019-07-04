@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
 import com.example.cuteweatherv1.R
 import com.example.cuteweatherv1.repository.AirSectionsAdapter
+import com.example.cuteweatherv1.ui.air.library.DashboardView2
 import com.google.android.material.tabs.TabLayout
 
 class AirInfoActivity : AppCompatActivity() {
@@ -17,5 +18,6 @@ class AirInfoActivity : AppCompatActivity() {
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
+//        dashboardView.setValue(700)
     }
 }

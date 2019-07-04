@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="wrap_content" android:id="@+id/city_item">
+
+    <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:id="@+id/cardView" android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <TextView
+                    android:text="城市"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/city_tv" android:textSize="30sp"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintTop_toTopOf="parent" android:layout_marginStart="32dp"
+                    app:layout_constraintStart_toStartOf="parent"/>
+            <TextView
+                    android:text="上级城市，省份"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/province_tv" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/city_tv"
+                    android:textSize="18sp" app:layout_constraintStart_toStartOf="@+id/city_tv"
+            />
+            <TextView
+                    android:text="温度℃"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/temp_tv" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/city_tv" android:textSize="36sp"
+                    android:layout_marginEnd="32dp"
+            />
+            <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" app:srcCompat="@drawable/duoyun"
+                    android:id="@+id/icon"
+                    app:layout_constraintEnd_toStartOf="@+id/temp_tv"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintTop_toTopOf="@+id/temp_tv" android:layout_marginTop="8dp"/>
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/divider" app:layout_constraintTop_toBottomOf="@+id/province_tv"
+                    android:layout_marginTop="24dp" android:background="#9F9E9C9C" android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"/>
+            <TextView
+                    android:text="空气状况|湿度|风向"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/more_info"
+                    app:layout_constraintTop_toBottomOf="@+id/divider"
+                    app:layout_constraintStart_toStartOf="@+id/province_tv"
+                    android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="8dp" android:textSize="18sp"/>
+            <TextView
+                    android:text="最高/最低℃"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/min_max_temp" app:layout_constraintEnd_toEndOf="@+id/temp_tv"
+                    app:layout_constraintTop_toBottomOf="@+id/divider"
+                    android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="8dp" android:textSize="18sp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

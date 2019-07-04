@@ -18,6 +18,7 @@ import com.example.cuteweatherv1.R
 import com.example.cuteweatherv1.location.MyLocation
 import com.example.cuteweatherv1.repository.Reposition
 import com.example.cuteweatherv1.ui.city.CityMngActivity
+import com.example.cuteweatherv1.repository.air.DealAriInfoJson
 import com.gyf.immersionbar.ImmersionBar
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +26,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+//        val dealAriInfoJson = DealAriInfoJson()
+//        dealAriInfoJson.deal()
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)

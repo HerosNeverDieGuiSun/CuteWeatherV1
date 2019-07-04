@@ -22,14 +22,12 @@ class FragmentWeather : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.e("my","sad1")
         return inflater.inflate(R.layout.fragment_weather, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(FragmentWeatherViewModel::class.java)
-        Log.e("my","sad2")
         // TODO: Use the ViewModel
     }
 

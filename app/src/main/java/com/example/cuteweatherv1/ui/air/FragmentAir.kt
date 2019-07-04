@@ -36,7 +36,7 @@ class FragmentAir : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val intent = Intent()
         aircv.setOnClickListener {
-            intent.setClass(getActivity()?.getApplicationContext(), AirInfoActivity::class.java)
+            intent.setClass(activity?.applicationContext, AirInfoActivity::class.java)
             startActivity(intent)
         }
 

@@ -1,4 +1,4 @@
-package com.example.cuteweatherv1.repository
+package com.example.cuteweatherv1.repository.air
 
 import android.content.Context
 import androidx.fragment.app.Fragment
@@ -12,9 +12,7 @@ private val TAB_TITLES = arrayOf(
     R.string.tab_text_2,
     R.string.tab_text_3,
     R.string.tab_text_4,
-    R.string.tab_text_5,
-    R.string.tab_text_6,
-    R.string.tab_text_7
+    R.string.tab_text_5
 )
 class AirSectionsAdapter (private val context: Context, fm: FragmentManager) : FragmentPagerAdapter(fm){
 
@@ -30,7 +28,7 @@ class AirSectionsAdapter (private val context: Context, fm: FragmentManager) : F
 
     override fun getCount(): Int {
         // Show 2 total pages.
-        return 7
+        return 5
     }
 
 

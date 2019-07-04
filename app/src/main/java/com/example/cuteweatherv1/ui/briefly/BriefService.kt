@@ -2,8 +2,7 @@ package com.example.cuteweatherv1.ui.briefly
 
 import com.example.cuteweatherv1.ui.briefly.data.BriefInfo
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.*
 
 /**
  * 时间：2019/7/4 11:27

@@ -10,6 +10,6 @@
               android:label="fragment_daily" tools:layout="@layout/fragment_daily"/>
     <fragment android:id="@+id/fragmentHourly" android:name="com.example.cuteweatherv1.ui.FragmentHourly"
               android:label="fragment_hourly" tools:layout="@layout/fragment_hourly"/>
-    <fragment android:id="@+id/fragmentAir" android:name="com.example.cuteweatherv1.ui.FragmentAir"
+    <fragment android:id="@+id/fragmentAir" android:name="com.example.cuteweatherv1.ui.air.FragmentAir"
               android:label="fragment_air" tools:layout="@layout/fragment_air"/>
 </navigation>

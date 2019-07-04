@@ -73,7 +73,7 @@
 
             <fragment
                     android:id="@+id/fragmentAir"
-                    android:name="com.example.cuteweatherv1.ui.FragmentAir"
+                    android:name="com.example.cuteweatherv1.ui.air.FragmentAir"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_constraintLeft_toLeftOf="parent"

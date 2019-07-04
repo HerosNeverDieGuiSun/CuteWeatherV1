@@ -1,11 +1,12 @@
 package com.example.cuteweatherv1.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.example.cuteweatherv1.R
+import com.example.cuteweatherv1.ui.city.CityMngActivity
 import com.gyf.immersionbar.ImmersionBar
 
 class MainActivity : AppCompatActivity() {
@@ -19,7 +20,10 @@ class MainActivity : AppCompatActivity() {
         toolbar.setOnMenuItemClickListener { item ->
             when(item?.itemId) {
                 R.id.change_city -> {
-                    Toast.makeText(applicationContext, "更换城市", Toast.LENGTH_SHORT).show()
+                    val intent = Intent()
+                    intent.setClass(applicationContext, CityMngActivity::class.java)
+
+                    startActivity(intent)
                 }
             }
             true

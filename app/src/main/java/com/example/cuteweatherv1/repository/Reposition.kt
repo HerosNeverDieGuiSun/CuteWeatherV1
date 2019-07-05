@@ -1,28 +1,30 @@
 package com.example.cuteweatherv1.repository
 
-import android.location.LocationManager
+import android.util.Log
+import androidx.lifecycle.MutableLiveData
+import com.example.cuteweatherv1.location.LocationService
+import com.example.cuteweatherv1.location.data.LocationData
 import com.example.cuteweatherv1.ui.briefly.BriefService
 import com.example.cuteweatherv1.ui.briefly.data.BriefInfo
+import com.github.promeg.pinyinhelper.Pinyin
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class Reposition {
+
     object Holder {
         val INSTANCE = Reposition()
     }
     companion object {
         val instance = Holder.INSTANCE
+        const val KEY = "SAc5cXnjG7dhZBOf_"
+        const val BASEURL = "https://api.seniverse.com/"
+        const val AIRDAILY = "v3/air/daily.json"
     }
 
-    val retrofit = Retrofit.Builder()
-        .baseUrl("https://api.seniverse.com/")
-        .addConverterFactory(GsonConverterFactory.create()).build()
 
-    fun getBriefInfo(): BriefInfo? {
-
-        val service =retrofit.create(BriefService::class.java)
-        //service.getInfo("SAc5cXnjG7dhZBOf_", )
-        return null
-    }
 
 }

@@ -11,6 +11,10 @@ import com.zaaach.citypicker.model.City
 import com.zaaach.citypicker.model.HotCity
 import com.zaaach.citypicker.model.LocatedCity
 
+/**
+ * Created by 胡婵娟.
+ * 内容：城市选择页面处理
+ */
 class CityChooseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -15,18 +15,20 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.cuteweatherv1.R
+import com.example.cuteweatherv1.location.MyLocation
+import com.example.cuteweatherv1.repository.Reposition
 import com.example.cuteweatherv1.ui.city.CityMngActivity
+import com.example.cuteweatherv1.repository.air.DealAriInfoJson
 import com.gyf.immersionbar.ImmersionBar
 
 class MainActivity : AppCompatActivity() {
 
-    private var location = ""
-    var latitude = 0.0
-    var longitude = 0.0
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+//        val dealAriInfoJson = DealAriInfoJson()
+//        dealAriInfoJson.deal()
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -43,11 +45,12 @@ class MainActivity : AppCompatActivity() {
         }
         ImmersionBar.with(this).statusBarColor(R.color.colorPrimary).init()
 
-        val location = getLastKnownLocation()
-        Log.e("mylog", location)
+        getLastKnownLocation()
+        Log.e("mylog", "${MyLocation.instance.latitude} ${MyLocation.instance.longitude}")
+        //Reposition.instance.getLocation(latitude.toString(), longitude.toString())
     }
 
-    fun getLastKnownLocation(): String {
+    private fun getLastKnownLocation() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
             != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
@@ -57,16 +60,15 @@ class MainActivity : AppCompatActivity() {
         for (provider in providers) {
             val location = locationManager.getLastKnownLocation(provider)
             if (location != null) {
-                latitude = location.latitude
-                longitude = location.longitude
-                return "$longitude,$latitude"
+                MyLocation.instance.latitude = location.latitude.toString()
+                MyLocation.instance.longitude = location.longitude.toString()
             }
         }
         val locationListener = object : LocationListener {
             override fun onLocationChanged(location: Location?) {
                 if (location != null) {
-                    latitude = location.latitude;
-                    longitude = location.longitude;
+                    MyLocation.instance.latitude = location.latitude.toString()
+                    MyLocation.instance.longitude = location.longitude.toString()
                 }
             }
 
@@ -82,10 +84,9 @@ class MainActivity : AppCompatActivity() {
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 0F, locationListener)
         val location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
         if (location != null) {
-            latitude = location.latitude
-            longitude = location.longitude
+            MyLocation.instance.latitude = location.latitude.toString()
+            MyLocation.instance.longitude = location.longitude.toString()
         }
-        return "$longitude,$latitude"
     }
 
 
@@ -96,6 +97,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        location = getLastKnownLocation()
+        getLastKnownLocation()
     }
 }

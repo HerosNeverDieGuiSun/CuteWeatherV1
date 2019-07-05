@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import com.example.cuteweatherv1.R
 import com.example.cuteweatherv1.location.MyLocation
 import com.example.cuteweatherv1.repository.Reposition
+import com.example.cuteweatherv1.repository.daily.DailyOperate
 import com.example.cuteweatherv1.ui.briefly.data.Result
 import kotlinx.android.synthetic.main.fragment_weather.*
 
@@ -44,6 +45,7 @@ class FragmentWeather : Fragment() {
         MyLocation.instance.city.observe(this, Observer<String> { t ->
             //使用新数据更新界面
             viewModel.getBriefInfo()
+            DailyOperate.instance.getDailyData()
         })
 
         MyLocation.instance.briefInfo.observe(this, Observer<Result> {

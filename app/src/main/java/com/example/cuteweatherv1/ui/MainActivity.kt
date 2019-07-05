@@ -46,7 +46,6 @@ class MainActivity : AppCompatActivity() {
         ImmersionBar.with(this).statusBarColor(R.color.colorPrimary).init()
 
         getLastKnownLocation()
-        Log.e("mylog", "${MyLocation.instance.latitude} ${MyLocation.instance.longitude}")
     }
 
     private fun getLastKnownLocation() {

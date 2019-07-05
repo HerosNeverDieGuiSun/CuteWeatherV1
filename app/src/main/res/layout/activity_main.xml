@@ -49,7 +49,7 @@
 
             <fragment
                     android:id="@+id/fragmentDaily"
-                    android:name="com.example.cuteweatherv1.ui.FragmentDaily"
+                    android:name="com.example.cuteweatherv1.ui.daily.FragmentDaily"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_constraintLeft_toLeftOf="parent"

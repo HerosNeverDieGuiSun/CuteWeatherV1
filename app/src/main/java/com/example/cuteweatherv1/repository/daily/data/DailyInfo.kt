@@ -1,15 +1,14 @@
-package com.example.cuteweatherv1.ui.briefly.data
-
+package com.example.cuteweatherv1.repository.daily.data
 
 import com.google.gson.annotations.SerializedName
 
 /**
- * 时间：2019/7/4 11:14
+ * 时间：2019/7/5 11:19
  * 作者：程弋
- * 描述: 天气简略信息
+ * 描述: 五天内的信息
  */
 
-data class BriefInfo(
+data class DailyInfo(
     @SerializedName("results")
     val results: List<Result>
 )

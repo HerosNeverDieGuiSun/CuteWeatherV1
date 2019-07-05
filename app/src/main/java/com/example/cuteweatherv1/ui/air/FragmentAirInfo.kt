@@ -15,6 +15,7 @@ import com.example.cuteweatherv1.R
 import com.example.cuteweatherv1.repository.air.DealAriInfoJson
 import com.example.cuteweatherv1.repository.air.data.SaveAirDaily
 import com.example.cuteweatherv1.ui.air.library.DashboardView2
+import kotlinx.android.synthetic.main.activity_air_info.*
 import kotlinx.android.synthetic.main.fragment_air_info.*
 
 class FragmentAirInfo : Fragment() {
@@ -58,6 +59,7 @@ class FragmentAirInfo : Fragment() {
         airViewModel.o3num.observe(this, Observer<String> {
             To3.text = it
         })
+
 
 
 

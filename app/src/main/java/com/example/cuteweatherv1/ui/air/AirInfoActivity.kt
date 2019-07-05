@@ -7,6 +7,7 @@ import com.example.cuteweatherv1.R
 import com.example.cuteweatherv1.repository.air.AirSectionsAdapter
 import com.example.cuteweatherv1.repository.air.DealAriInfoJson
 import com.google.android.material.tabs.TabLayout
+import kotlinx.android.synthetic.main.activity_air_info.*
 import java.text.FieldPosition
 
 class AirInfoActivity : AppCompatActivity() {
@@ -39,6 +40,9 @@ class AirInfoActivity : AppCompatActivity() {
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
+        backiv.setOnClickListener {
+            finish()
+        }
 //        dashboardView.setValue(700)
     }
 }

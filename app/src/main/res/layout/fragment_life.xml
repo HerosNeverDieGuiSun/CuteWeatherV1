@@ -8,256 +8,334 @@
 >
     <androidx.cardview.widget.CardView android:layout_width="match_parent"
                                        android:layout_height="match_parent"
-                                       app:cardBackgroundColor="@android:color/holo_blue_light"
+                                       app:cardBackgroundColor="@android:color/background_light"
                                        android:layout_centerInParent="true"
                                        app:cardCornerRadius="12dp"
-                                       android:elevation="8dp">
+                                       android:elevation="8dp" android:id="@+id/cardView3">
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
         >
             <ImageView
-                    android:src="@drawable/wear1"
+                    android:src="@drawable/wear3"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:layout_constraintWidth_percent="0.20"
+                    app:layout_constraintWidth_percent="0.10"
                     app:layout_constraintDimensionRatio="w,1:1"
                     android:id="@+id/iv1" app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="16dp" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/wear1"/>
+                    android:layout_marginStart="12dp"
+                    app:srcCompat="@drawable/wear3" app:layout_constraintTop_toBottomOf="@+id/view4"
+                    android:layout_marginTop="12dp"/>
             <ImageView
-                    android:src="@drawable/cold1"
+                    android:src="@drawable/cold3"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:layout_constraintWidth_percent="0.20"
+                    app:layout_constraintWidth_percent="0.10"
                     app:layout_constraintDimensionRatio="w,1:1"
                     android:id="@+id/Iv2"
                     android:layout_marginStart="8dp"
-                    app:layout_constraintStart_toEndOf="@+id/iv4" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toStartOf="@+id/iv6"
-                    android:layout_marginEnd="8dp" app:srcCompat="@drawable/cold1"/>
+                    app:srcCompat="@drawable/cold3" app:layout_constraintStart_toStartOf="@+id/guideline2"
+                    app:layout_constraintTop_toBottomOf="@+id/view4" android:layout_marginTop="12dp"/>
             <ImageView
-                    android:src="@drawable/tour1"
+                    android:src="@drawable/tour3"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:layout_constraintWidth_percent="0.20"
+                    app:layout_constraintWidth_percent="0.10"
                     app:layout_constraintDimensionRatio="w,1:1"
                     android:id="@+id/iv3"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="16dp" app:srcCompat="@drawable/tour1"/>
+                    app:srcCompat="@drawable/tour3" android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toStartOf="@+id/guideline3"
+                    app:layout_constraintTop_toBottomOf="@+id/view4" android:layout_marginTop="12dp"/>
             <ImageView
-                    android:src="@drawable/translate1"
+                    android:src="@drawable/translate3"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:layout_constraintWidth_percent="0.20"
+                    app:layout_constraintWidth_percent="0.10"
                     app:layout_constraintDimensionRatio="w,1:1"
                     android:id="@+id/iv4" app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="16dp" android:layout_marginTop="32dp"
-                    app:layout_constraintTop_toBottomOf="@+id/iv1" app:srcCompat="@drawable/translate1"/>
+                    android:layout_marginStart="12dp"
+                    app:srcCompat="@drawable/translate3" app:layout_constraintTop_toBottomOf="@+id/view10"
+                    android:layout_marginTop="12dp"/>
             <TextView
                     android:text="TextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/tvTranslate"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/iv4"
-                    app:layout_constraintStart_toStartOf="@+id/iv4"
-                    app:layout_constraintEnd_toEndOf="@+id/iv4"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView12" app:layout_constraintStart_toEndOf="@+id/iv4"
+                    android:layout_marginStart="8dp" android:textSize="13sp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2" android:layout_marginEnd="8dp"/>
             <ImageView
-                    android:src="@drawable/fishing1"
+                    android:src="@drawable/fishing3"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:layout_constraintWidth_percent="0.20"
+                    app:layout_constraintWidth_percent="0.10"
                     app:layout_constraintDimensionRatio="w,1:1"
                     android:id="@+id/iv5"
-                    android:layout_marginTop="32dp"
-                    app:layout_constraintTop_toBottomOf="@+id/Iv2" android:layout_marginEnd="8dp"
-                    app:layout_constraintEnd_toStartOf="@+id/iv6"
-                    app:layout_constraintStart_toEndOf="@+id/iv4" android:layout_marginStart="8dp"
-                    app:srcCompat="@drawable/fishing1"/>
+                    app:layout_constraintTop_toBottomOf="@+id/view10"
+                    android:layout_marginStart="8dp"
+                    app:srcCompat="@drawable/fishing3" android:layout_marginTop="12dp"
+                    app:layout_constraintStart_toStartOf="@+id/guideline2"/>
             <TextView
                     android:text="TextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/tvFishing"
-                    app:layout_constraintTop_toBottomOf="@+id/iv5"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintStart_toStartOf="@+id/iv5"
-                    app:layout_constraintEnd_toEndOf="@+id/iv5" android:textAlignment="center"/>
+                    app:layout_constraintTop_toBottomOf="@+id/textView11"
+                    android:textAlignment="center" app:layout_constraintStart_toEndOf="@+id/iv5"
+                    android:layout_marginStart="8dp" android:layout_marginTop="4dp" android:textSize="13sp"
+                    android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/guideline3"/>
             <ImageView
-                    android:src="@drawable/shopping1"
+                    android:src="@drawable/shopping3"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:layout_constraintWidth_percent="0.20"
+                    app:layout_constraintWidth_percent="0.10"
                     app:layout_constraintDimensionRatio="w,1:1"
                     android:id="@+id/iv6"
-                    android:layout_marginTop="32dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="16dp" app:layout_constraintTop_toBottomOf="@+id/iv3"
-                    app:srcCompat="@drawable/shopping1"/>
+                    app:layout_constraintTop_toBottomOf="@+id/view10"
+                    app:srcCompat="@drawable/shopping3" android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toStartOf="@+id/guideline3"/>
             <TextView
                     android:text="TextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvShopping" app:layout_constraintStart_toStartOf="@+id/iv6"
-                    app:layout_constraintEnd_toEndOf="@+id/iv6"
-                    android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/iv6"
-                    android:textAlignment="center"/>
+                    android:id="@+id/tvShopping"
+                    android:textAlignment="center"
+                    app:layout_constraintStart_toEndOf="@+id/iv6" android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp" app:layout_constraintTop_toBottomOf="@+id/textView10"
+                    android:textSize="13sp" android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"/>
             <TextView
                     android:text="TextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/tvWear"
-                    app:layout_constraintStart_toStartOf="@+id/iv1"
-                    app:layout_constraintEnd_toEndOf="@+id/iv1"
-                    app:layout_constraintTop_toBottomOf="@+id/iv1" android:layout_marginTop="8dp"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2" app:layout_constraintStart_toEndOf="@+id/iv1"
+                    android:layout_marginStart="8dp" android:textSize="13sp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2" android:layout_marginEnd="8dp"/>
             <TextView
                     android:text="TextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/tvCold"
-                    app:layout_constraintStart_toStartOf="@+id/Iv2"
-                    app:layout_constraintEnd_toEndOf="@+id/Iv2"
-                    app:layout_constraintTop_toBottomOf="@+id/Iv2" android:layout_marginTop="8dp"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center"
+                    android:layout_marginTop="4dp" app:layout_constraintTop_toBottomOf="@+id/textView"
+                    app:layout_constraintStart_toEndOf="@+id/Iv2" android:layout_marginStart="8dp"
+                    android:textSize="13sp" android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline3"/>
             <TextView
                     android:text="TextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/tvTour"
-                    app:layout_constraintStart_toStartOf="@+id/iv3"
-                    app:layout_constraintEnd_toEndOf="@+id/iv3" android:layout_marginEnd="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/iv3" android:layout_marginTop="8dp"
-                    android:textAlignment="center"/>
+                    app:layout_constraintTop_toBottomOf="@+id/textView3" android:layout_marginTop="4dp"
+                    android:textAlignment="center" app:layout_constraintStart_toEndOf="@+id/iv3"
+                    android:layout_marginStart="8dp" android:textSize="13sp" android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"/>
             <ImageView
-                    android:src="@drawable/date1"
+                    android:src="@drawable/date3"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:layout_constraintWidth_percent="0.20"
+                    app:layout_constraintWidth_percent="0.10"
                     app:layout_constraintDimensionRatio="w,1:1"
                     android:id="@+id/iv7" app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="16dp" android:layout_marginTop="32dp"
-                    app:layout_constraintTop_toTopOf="@+id/tvTranslate" app:srcCompat="@drawable/date1"/>
+                    android:layout_marginStart="12dp" android:layout_marginTop="12dp"
+                    app:srcCompat="@drawable/date3" app:layout_constraintTop_toBottomOf="@+id/view11"
+                    android:layout_marginBottom="16dp" app:layout_constraintBottom_toBottomOf="parent"/>
             <TextView
                     android:text="TextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/tvDate"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/iv7"
-                    app:layout_constraintStart_toStartOf="@+id/iv7"
-                    app:layout_constraintEnd_toEndOf="@+id/iv7"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView5" app:layout_constraintStart_toEndOf="@+id/iv7"
+                    android:layout_marginStart="8dp" android:textSize="13sp" android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"/>
             <ImageView
-                    android:src="@drawable/night1"
+                    android:src="@drawable/night3"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:layout_constraintWidth_percent="0.20"
+                    app:layout_constraintWidth_percent="0.10"
                     app:layout_constraintDimensionRatio="w,1:1"
                     android:id="@+id/iv8"
-                    android:layout_marginStart="8dp" android:layout_marginTop="32dp"
-                    app:layout_constraintTop_toTopOf="@+id/tvFishing" app:layout_constraintStart_toEndOf="@+id/iv7"
-                    android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/iv9"
-                    app:srcCompat="@drawable/night1"/>
+                    android:layout_marginStart="8dp"
+                    app:srcCompat="@drawable/night3" app:layout_constraintTop_toBottomOf="@+id/view11"
+                    android:layout_marginTop="12dp" app:layout_constraintStart_toStartOf="@+id/guideline2"
+                    android:layout_marginBottom="16dp" app:layout_constraintBottom_toBottomOf="parent"/>
             <TextView
                     android:text="TextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/tvNight"
-                    app:layout_constraintStart_toStartOf="@+id/iv8"
-                    app:layout_constraintEnd_toEndOf="@+id/iv8" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/iv8" android:textAlignment="center"/>
+                    android:textAlignment="center"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView6" app:layout_constraintStart_toEndOf="@+id/iv8"
+                    android:layout_marginStart="8dp" android:textSize="13sp" android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline3"/>
             <ImageView
-                    android:src="@drawable/heart1"
+                    android:src="@drawable/heart3"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:layout_constraintWidth_percent="0.20"
+                    app:layout_constraintWidth_percent="0.10"
                     app:layout_constraintDimensionRatio="w,1:1"
                     android:id="@+id/iv9"
-                    android:layout_marginEnd="16dp"
-                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="32dp"
-                    app:layout_constraintTop_toTopOf="@+id/tvShopping" app:srcCompat="@drawable/heart1"/>
+                    app:srcCompat="@drawable/heart3" app:layout_constraintTop_toBottomOf="@+id/view11"
+                    android:layout_marginTop="12dp" android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toStartOf="@+id/guideline3" android:layout_marginBottom="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
             <TextView
                     android:text="TextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/tvHeart"
-                    app:layout_constraintStart_toStartOf="@+id/iv9"
-                    app:layout_constraintEnd_toEndOf="@+id/iv9" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/iv9" android:textAlignment="center"/>
+                    android:textAlignment="center"
+                    android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView7" app:layout_constraintStart_toEndOf="@+id/iv9"
+                    android:layout_marginStart="8dp" android:textSize="13sp" android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"/>
             <TextView
                     android:text="风寒"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView" android:textSize="10sp"
-                    app:layout_constraintStart_toStartOf="@+id/Iv2"
-                    app:layout_constraintEnd_toEndOf="@+id/Iv2"
-                    app:layout_constraintBottom_toTopOf="@+id/tvCold"/>
+                    android:id="@+id/textView" android:textSize="12sp"
+                    app:layout_constraintTop_toTopOf="@+id/Iv2" app:layout_constraintStart_toEndOf="@+id/Iv2"
+                    android:layout_marginStart="8dp" android:textColor="@color/cp_color_gray"
+                    android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/guideline3"/>
             <TextView
                     android:text="穿衣"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="10sp" app:layout_constraintStart_toStartOf="@+id/iv1"
-                    app:layout_constraintEnd_toEndOf="@+id/iv1"
-                    app:layout_constraintBottom_toTopOf="@+id/tvWear"/>
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/iv1"
+                    android:layout_marginStart="8dp" app:layout_constraintTop_toTopOf="@+id/iv1"
+                    android:id="@+id/textView2" android:textColor="@color/cp_color_gray" android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"/>
             <TextView
                     android:text="旅行"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView3" app:layout_constraintStart_toStartOf="@+id/iv3"
-                    app:layout_constraintEnd_toEndOf="@+id/iv3" android:textSize="10sp"
-                    app:layout_constraintBottom_toTopOf="@+id/tvTour"/>
+                    android:id="@+id/textView3"
+                    android:textSize="12sp"
+                    android:textAlignment="center"
+                    app:layout_constraintTop_toTopOf="@+id/iv3" app:layout_constraintStart_toEndOf="@+id/iv3"
+                    android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:textColor="@color/cp_color_gray"/>
             <TextView
                     android:text="购物"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView10"
-                    android:textSize="10sp"
-                    app:layout_constraintStart_toStartOf="@+id/iv6"
-                    app:layout_constraintEnd_toEndOf="@+id/iv6"
-                    app:layout_constraintBottom_toTopOf="@+id/tvShopping"/>
+                    android:textSize="12sp"
+                    app:layout_constraintTop_toTopOf="@+id/iv6" app:layout_constraintStart_toEndOf="@+id/iv6"
+                    android:layout_marginStart="8dp" android:textColor="@color/cp_color_gray"
+                    android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"/>
             <TextView
                     android:text="钓鱼"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView11"
-                    android:textSize="10sp"
-                    app:layout_constraintStart_toStartOf="@+id/iv5"
-                    app:layout_constraintEnd_toEndOf="@+id/iv5"
-                    app:layout_constraintHorizontal_bias="0.493"
-                    app:layout_constraintBottom_toTopOf="@+id/tvFishing"/>
+                    android:textSize="12sp"
+                    app:layout_constraintTop_toTopOf="@+id/iv5" app:layout_constraintStart_toEndOf="@+id/iv5"
+                    android:layout_marginStart="8dp" android:textColor="@color/cp_color_gray"
+                    android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/guideline3"/>
             <TextView
                     android:text="交通"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView12"
-                    android:textSize="10sp"
-                    app:layout_constraintStart_toStartOf="@+id/iv4"
-                    app:layout_constraintEnd_toEndOf="@+id/iv4"
-                    app:layout_constraintBottom_toTopOf="@+id/tvTranslate"/>
+                    android:textSize="12sp"
+                    app:layout_constraintTop_toTopOf="@+id/iv4" app:layout_constraintStart_toEndOf="@+id/iv4"
+                    android:layout_marginStart="8dp" android:textColor="@color/cp_color_gray"
+                    android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/guideline2"/>
             <TextView
                     android:text="约会"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView5" android:textSize="10sp" app:layout_constraintEnd_toEndOf="@+id/iv7"
-                    app:layout_constraintStart_toStartOf="@+id/iv7" app:layout_constraintBottom_toTopOf="@+id/tvDate"/>
+                    android:id="@+id/textView5" android:textSize="12sp"
+                    app:layout_constraintTop_toTopOf="@+id/iv7" app:layout_constraintStart_toEndOf="@+id/iv7"
+                    android:layout_marginStart="8dp" android:textColor="@color/cp_color_gray"
+                    android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/guideline2"/>
             <TextView
                     android:text="夜生活"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView6" android:textSize="10sp" app:layout_constraintEnd_toEndOf="@+id/iv8"
-                    app:layout_constraintStart_toStartOf="@+id/iv8" app:layout_constraintBottom_toTopOf="@+id/tvNight"/>
+                    android:id="@+id/textView6" android:textSize="12sp"
+                    app:layout_constraintTop_toTopOf="@+id/iv8"
+                    app:layout_constraintStart_toEndOf="@+id/iv8" android:layout_marginStart="8dp"
+                    android:textColor="@color/cp_color_gray" android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline3"/>
             <TextView
                     android:text="心情"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView7" android:textSize="10sp" app:layout_constraintEnd_toEndOf="@+id/iv9"
-                    app:layout_constraintStart_toStartOf="@+id/iv9" app:layout_constraintBottom_toTopOf="@+id/tvHeart"/>
+                    android:id="@+id/textView7" android:textSize="12sp"
+                    app:layout_constraintTop_toTopOf="@+id/iv9"
+                    app:layout_constraintStart_toEndOf="@+id/iv9" android:layout_marginStart="8dp"
+                    android:textColor="@color/cp_color_gray" android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+            <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:id="@+id/guideline2"
+                                                        android:orientation="vertical"
+                                                        app:layout_constraintGuide_percent="0.33"/>
+            <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:id="@+id/guideline3"
+                                                        android:orientation="vertical"
+                                                        app:layout_constraintGuide_percent="0.67"/>
+            <View
+                    android:layout_width="0dp"
+                    android:background="#F3EAEA"
+                    android:layout_height="1dp" android:id="@+id/view10"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCold" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                    android:layout_marginTop="12dp" app:layout_constraintHorizontal_bias="0.0"/>
+            <View
+                    android:layout_width="0dp"
+                    android:background="#F3EAEA"
+                    android:layout_height="1dp" android:id="@+id/view4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" android:layout_marginTop="6dp"/>
+            <View
+                    android:layout_width="1dp"
+                    android:background="#F3EAEA"
+                    android:layout_height="0dp" android:id="@+id/view12"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                    app:layout_constraintTop_toBottomOf="@+id/view4" android:layout_marginTop="8dp"/>
+            <View
+                    android:layout_width="1dp"
+                    android:background="#F3EAEA"
+                    android:layout_height="0dp" android:id="@+id/view13"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline2"
+                    app:layout_constraintTop_toBottomOf="@+id/view4" android:layout_marginTop="8dp"/>
+            <View
+                    android:layout_width="0dp"
+                    android:background="#F3EAEA"
+                    android:layout_height="1dp" android:id="@+id/view11"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp" app:layout_constraintTop_toBottomOf="@+id/tvFishing"
+                    android:layout_marginTop="12dp"/>
+            <TextView
+                    android:text="今日建议"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView4" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toTopOf="parent" android:textSize="14sp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

@@ -11,7 +11,7 @@
                                        app:cardBackgroundColor="@android:color/background_light"
                                        android:layout_centerInParent="true"
                                        app:cardCornerRadius="12dp"
-                                       android:elevation="8dp" android:id="@+id/cardView3">
+                                       android:elevation="8dp" android:id="@+id/suggestView">
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

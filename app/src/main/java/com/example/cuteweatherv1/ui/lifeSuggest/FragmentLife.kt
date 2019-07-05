@@ -1,5 +1,6 @@
 package com.example.cuteweatherv1.ui.lifeSuggest
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.util.Log
@@ -56,6 +57,12 @@ class FragmentLife : Fragment() {
                     tvWear.text = response.body()?.results?.get(0)?.suggestion?.dressing?.brief!! ?: "无"
                 }
             })
+
+        suggestView.setOnClickListener {
+            val intent = Intent()
+            intent.setClass(activity?.applicationContext, SuggestInfoActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 

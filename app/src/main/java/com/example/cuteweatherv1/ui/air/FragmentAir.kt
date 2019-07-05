@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 
 import com.example.cuteweatherv1.R
+import com.example.cuteweatherv1.location.MyLocation
 import com.example.cuteweatherv1.repository.air.DealAirJson
 import com.example.cuteweatherv1.repository.air.data.AirData.SaveAir
 import com.example.cuteweatherv1.ui.air.library.DashboardView2
@@ -49,8 +50,12 @@ class FragmentAir : Fragment() {
         dv1.setNumColor(Color.parseColor("#33B5E5"))
         dv1.setLevelColor(Color.parseColor("#33B5E5"))
         val dealAirJson = DealAirJson()
-        dealAirJson.deal()
 
+        MyLocation.instance.city.observe(this, object : Observer<String>{
+            override fun onChanged(t: String) {
+                dealAirJson.deal(t)
+            }
+        })
         SaveAir.instance.airNum.observe(this,object : Observer<Int> {
             override fun onChanged(t: Int) {
                 dv1.setValue(t,true,true)

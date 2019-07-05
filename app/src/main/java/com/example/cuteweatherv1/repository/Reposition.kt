@@ -13,6 +13,7 @@ class Reposition {
         const val GPSURL = "http://apis.juhe.cn/"
         const val BASEURL = "https://api.seniverse.com/"
         const val AIRDAILY = "v3/air/daily.json"
-        const val Air = "v3/air/now.json?"
+        const val AIR = "v3/air/now.json?"
+        const val SUNRISE = "v3/geo/sun.json"
     }
 }

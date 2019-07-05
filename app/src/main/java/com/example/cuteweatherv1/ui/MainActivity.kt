@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
 
         getLastKnownLocation()
         Log.e("mylog", "${MyLocation.instance.latitude} ${MyLocation.instance.longitude}")
-        //Reposition.instance.getLocation(latitude.toString(), longitude.toString())
     }
 
     private fun getLastKnownLocation() {
@@ -81,12 +80,21 @@ class MainActivity : AppCompatActivity() {
             override fun onProviderDisabled(provider: String?) {
             }
         }
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 0F, locationListener)
-        val location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
-        if (location != null) {
-            MyLocation.instance.latitude = location.latitude.toString()
-            MyLocation.instance.longitude = location.longitude.toString()
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0F, locationListener)
+        if(LocationManager.NETWORK_PROVIDER == null) {
+            val location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+            if (location != null) {
+                MyLocation.instance.latitude = location.latitude.toString()
+                MyLocation.instance.longitude = location.longitude.toString()
+            }
+        } else {
+            val location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+            if (location != null) {
+                MyLocation.instance.latitude = location.latitude.toString()
+                MyLocation.instance.longitude = location.longitude.toString()
+            }
         }
+
     }
 
 

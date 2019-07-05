@@ -1,4 +1,4 @@
-package com.example.cuteweatherv1.ui.briefly.data
+package com.example.cuteweatherv1.repository.air.data.AirData
 
 
 import com.google.gson.annotations.SerializedName

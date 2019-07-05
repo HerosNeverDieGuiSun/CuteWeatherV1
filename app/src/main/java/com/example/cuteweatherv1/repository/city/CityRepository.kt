@@ -10,11 +10,7 @@ class CityRepository {
     val data = ArrayList<CityInfo>()
 
     private constructor() {
-        data.add(CityInfo("南京", "", "", "", "", "", "", ""))
-        data.add(CityInfo("杭州", "", "", "", "", "", "", ""))
-        data.add(CityInfo("苏州", "", "", "", "", "", "", ""))
-        data.add(CityInfo("桐城", "", "", "", "", "", "", ""))
-        data.add(CityInfo("合肥", "", "", "", "", "", "", ""))
+
     }
 
     object Holder{

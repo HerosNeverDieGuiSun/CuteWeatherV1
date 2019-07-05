@@ -1,10 +1,17 @@
 package com.example.cuteweatherv1.ui.city
 
+import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.preference.PreferenceManager
 import android.widget.Toast
 import com.example.cuteweatherv1.R
+import com.example.cuteweatherv1.repository.city.CityRepository
+import com.example.cuteweatherv1.repository.city.DealCityInfo
+import com.example.cuteweatherv1.repository.city.data.CityInfo
+import com.example.cuteweatherv1.ui.MainActivity
 import com.zaaach.citypicker.CityPicker
 import com.zaaach.citypicker.adapter.OnPickListener
 import com.zaaach.citypicker.model.City
@@ -16,9 +23,11 @@ import com.zaaach.citypicker.model.LocatedCity
  * 内容：城市选择页面处理
  */
 class CityChooseActivity : AppCompatActivity() {
+    lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
         setContentView(R.layout.activity_city_choose)
         val hotCities = ArrayList<HotCity>()
         hotCities.add(HotCity("北京", "北京", "101010100"))
@@ -34,7 +43,22 @@ class CityChooseActivity : AppCompatActivity() {
             .setHotCities(hotCities)	//指定热门城市
             .setOnPickListener(object : OnPickListener {
                 override fun onPick(position: Int, data: City){
-                    Toast.makeText(getApplicationContext(), data.getName(), Toast.LENGTH_SHORT).show()
+                    if (!DealCityInfo().isAddRepeated(data.name)) {
+                        CityRepository.instance.data.add(
+                            CityInfo(data.name, "", "", "", "", "", "", "")
+                        )
+                        val edit = sharedPreferences.edit()
+                        var content = sharedPreferences.getString("city", "")
+                        if (content != "") {
+                            content += ","
+                        }
+                        content += data.name
+                        edit.putString("city", content).commit()
+                        finish()
+                    } else {
+                        finish()
+                        Toast.makeText(applicationContext, "不能重复添加同一城市哦", Toast.LENGTH_SHORT).show()
+                    }
                 }
 
                 override fun onCancel() {

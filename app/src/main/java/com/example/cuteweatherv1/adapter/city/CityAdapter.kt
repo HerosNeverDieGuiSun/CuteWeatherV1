@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cuteweatherv1.R
 import com.example.cuteweatherv1.repository.city.CityService
+import com.example.cuteweatherv1.repository.city.DealCityInfo
 import com.example.cuteweatherv1.repository.city.data.City
 import com.example.cuteweatherv1.repository.city.data.CityInfo
 import kotlinx.android.synthetic.main.city_item.view.*
@@ -32,7 +33,6 @@ class CityAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
         val city = data[position]
 
         val retrofit = Retrofit.Builder()
@@ -66,11 +66,12 @@ class CityAdapter(
                     holder.otherInfo.text = "湿度${cityInfo.humidity}%|${cityInfo.wind_direction}风${cityInfo.wind_scale}级"
                     holder.province.text = cityInfo.path
                     holder.temp.text = "${cityInfo.temperature}℃"
+                    holder.icon.setImageResource(DealCityInfo().diaplayIcon(cityInfo.text))
                 }
             })
 
 //        holder.city.text = "苏州"
-        holder.icon.setImageResource(R.drawable.duoyun)
+//        holder.icon.setImageResource(R.drawable.duoyun)
 //        holder.limitTemp.text = "体感温度23℃"
 //        holder.otherInfo.text = "湿度70%|东南风1级"
 //        holder.province.text = "江苏"
@@ -78,6 +79,10 @@ class CityAdapter(
 
         holder.itemView.setOnClickListener {
             itemClickListener.onItemClick(position)
+        }
+
+        holder.itemView.setOnLongClickListener{
+            itemClickListener.onItemLongClick(position)
         }
     }
 

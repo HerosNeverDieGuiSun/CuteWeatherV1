@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
 
         getLastKnownLocation()
         Log.e("mylog", "${MyLocation.instance.latitude} ${MyLocation.instance.longitude}")
-        //Reposition.instance.getLocation(latitude.toString(), longitude.toString())
     }
 
     private fun getLastKnownLocation() {

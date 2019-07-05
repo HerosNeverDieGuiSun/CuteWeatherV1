@@ -160,6 +160,14 @@ public abstract class BaseDashboardView extends View {
         //初始化
         initView();
     }
+    //设置数值颜色
+    public void setNumColor(@ColorInt int color){
+        mPaintValue.setColor(color);
+    }
+    //设置等级颜色
+    public void setLevelColor(@ColorInt int color){
+        mPaintValueLevel.setColor(color);
+    }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {

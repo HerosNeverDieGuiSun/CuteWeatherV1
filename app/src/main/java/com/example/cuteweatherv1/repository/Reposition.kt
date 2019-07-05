@@ -1,5 +1,6 @@
 package com.example.cuteweatherv1.repository
 
+
 class Reposition {
 
     object Holder {
@@ -12,5 +13,6 @@ class Reposition {
         const val GPSURL = "http://apis.juhe.cn/"
         const val BASEURL = "https://api.seniverse.com/"
         const val AIRDAILY = "v3/air/daily.json"
+        const val Air = "v3/air/now.json?"
     }
 }

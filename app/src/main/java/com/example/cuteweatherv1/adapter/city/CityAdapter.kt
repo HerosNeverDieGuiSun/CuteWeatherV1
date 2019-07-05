@@ -32,7 +32,6 @@ class CityAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
         val city = data[position]
 
         val retrofit = Retrofit.Builder()
@@ -78,6 +77,10 @@ class CityAdapter(
 
         holder.itemView.setOnClickListener {
             itemClickListener.onItemClick(position)
+        }
+
+        holder.itemView.setOnLongClickListener{
+            itemClickListener.onItemLongClick(position)
         }
     }
 

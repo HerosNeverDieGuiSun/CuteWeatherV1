@@ -60,9 +60,6 @@ class FragmentAirInfo : Fragment() {
             To3.text = it
         })
 
-
-
-
         return root
     }
 

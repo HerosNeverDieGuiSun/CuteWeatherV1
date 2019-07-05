@@ -9,6 +9,7 @@ import android.preference.PreferenceManager
 import android.widget.Toast
 import com.example.cuteweatherv1.R
 import com.example.cuteweatherv1.repository.city.CityRepository
+import com.example.cuteweatherv1.repository.city.DealCityInfo
 import com.example.cuteweatherv1.repository.city.data.CityInfo
 import com.example.cuteweatherv1.ui.MainActivity
 import com.zaaach.citypicker.CityPicker
@@ -42,18 +43,22 @@ class CityChooseActivity : AppCompatActivity() {
             .setHotCities(hotCities)	//指定热门城市
             .setOnPickListener(object : OnPickListener {
                 override fun onPick(position: Int, data: City){
-                    CityRepository.instance.data.add(
-                        CityInfo(data.name, "", "", "", "", "", "", "")
-                    )
-                    val edit = sharedPreferences.edit()
-                    var content = sharedPreferences.getString("city", "")
-                    if (content != "") {
-                        content += ","
+                    if (!DealCityInfo().isAddRepeated(data.name)) {
+                        CityRepository.instance.data.add(
+                            CityInfo(data.name, "", "", "", "", "", "", "")
+                        )
+                        val edit = sharedPreferences.edit()
+                        var content = sharedPreferences.getString("city", "")
+                        if (content != "") {
+                            content += ","
+                        }
+                        content += data.name
+                        edit.putString("city", content).commit()
+                        finish()
+                    } else {
+                        finish()
+                        Toast.makeText(applicationContext, "不能重复添加同一城市哦", Toast.LENGTH_SHORT).show()
                     }
-                    content += data.name
-                    edit.putString("city", content).commit()
-
-                    finish()
                 }
 
                 override fun onCancel() {

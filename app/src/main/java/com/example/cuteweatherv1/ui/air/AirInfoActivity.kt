@@ -2,8 +2,10 @@ package com.example.cuteweatherv1.ui.air
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import androidx.viewpager.widget.ViewPager
 import com.example.cuteweatherv1.R
+import com.example.cuteweatherv1.location.MyLocation
 import com.example.cuteweatherv1.repository.air.AirSectionsAdapter
 import com.example.cuteweatherv1.repository.air.DealAriInfoJson
 import com.google.android.material.tabs.TabLayout
@@ -18,9 +20,16 @@ class AirInfoActivity : AppCompatActivity() {
         val sectionsPagerAdapter =
             AirSectionsAdapter(this, supportFragmentManager)
         val viewPager: ViewPager = findViewById(R.id.view_pager)
+        var city = "beijing"
+        MyLocation.instance.city.observe(this, object : Observer<String> {
+            override fun onChanged(t: String) {
+                city = t
+                val dealAriInfoJson = DealAriInfoJson()
+                dealAriInfoJson.deal(0,city)
+            }
+        })
 
-        val dealAriInfoJson = DealAriInfoJson()
-        dealAriInfoJson.deal(0)
+
 
         viewPager.addOnPageChangeListener(object :ViewPager.OnPageChangeListener{
             override fun onPageScrollStateChanged(state: Int) {
@@ -33,7 +42,7 @@ class AirInfoActivity : AppCompatActivity() {
 
             override fun onPageSelected(position: Int) {
                 val dealAriInfoJson = DealAriInfoJson()
-                dealAriInfoJson.deal(position)
+                dealAriInfoJson.deal(position,city)
             }
 
         })

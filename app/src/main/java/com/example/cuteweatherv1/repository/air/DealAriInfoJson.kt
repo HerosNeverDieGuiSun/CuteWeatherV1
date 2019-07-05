@@ -13,13 +13,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.text.FieldPosition
 
 class DealAriInfoJson {
-    fun deal(position: Int){
+    fun deal(position: Int,city:String){
         val retrofit = Retrofit.Builder()
             .baseUrl(Reposition.BASEURL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(AirInfoServ::class.java)
-        service.getInfo(Reposition.KEY,"nanjing")
+        Log.e("my","city = "+city)
+        service.getInfo(Reposition.KEY,city)
             .enqueue(object : Callback<AirInfoData> {
                 override fun onFailure(call: Call<AirInfoData>, t: Throwable) {
                     Log.e("my","获取数据失败")

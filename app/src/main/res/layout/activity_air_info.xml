@@ -59,6 +59,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
+    <ImageView
+            android:layout_width="22dp"
+            android:layout_height="21dp" app:srcCompat="@drawable/back"
+            android:id="@+id/backiv" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="@+id/toolbar"
+            android:layout_marginStart="8dp"/>
 
     <!--<com.google.android.material.floatingactionbutton.FloatingActionButton-->
     <!--android:id="@+id/fab"-->

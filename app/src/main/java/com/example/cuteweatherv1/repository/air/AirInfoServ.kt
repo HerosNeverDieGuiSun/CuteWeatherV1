@@ -11,7 +11,7 @@ interface AirInfoServ {
     @GET(Reposition.AIRDAILY)
     fun getInfo(@Query("key") key:String, @Query("location") location: String): Call<AirInfoData>
 
-    @GET(Reposition.Air)
+    @GET(Reposition.AIR)
     fun getAirOnTime(@Query("key") key:String, @Query("location") location: String):Call<AirData>
 
 }

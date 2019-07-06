@@ -5,8 +5,12 @@
         xmlns:tools="http://schemas.android.com/tools"
         tools:context=".ui.MainActivity">
 
-    <item android:id="@+id/change_city"
-          android:icon="@drawable/city"
-          app:showAsAction="ifRoom"
-          android:title="更换城市"/>
+    <!--<item android:id="@+id/change_city"-->
+          <!--android:icon="@drawable/city"-->
+          <!--app:showAsAction="never"-->
+          <!--android:title="更换城市"/>-->
+    <!--<item android:id="@+id/"-->
+          <!--android:icon="@drawable/city"-->
+          <!--app:showAsAction="never"-->
+          <!--android:title="更换城市"/>-->
 </menu>

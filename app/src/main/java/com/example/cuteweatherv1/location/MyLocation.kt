@@ -30,6 +30,8 @@ class MyLocation {
 
     var latitude = ""
     var longitude = ""
+    var presentCity = ""
+    var isChanged = true
     val city = MutableLiveData<String>()
     val briefInfo = MutableLiveData<Result>()
 
@@ -58,11 +60,10 @@ class MyLocation {
             object : Callback<BriefInfo> {
                 override fun onResponse(call: Call<BriefInfo>, response: Response<BriefInfo>) {
                     briefInfo.value = response.body()?.results?.get(0)
-                    Log.e("mylog", briefInfo.value.toString())
                 }
 
                 override fun onFailure(call: Call<BriefInfo>, t: Throwable) {
-                    Log.e("mylog",t.message)
+                    Log.e("mylog", t.message)
                 }
             }
         )

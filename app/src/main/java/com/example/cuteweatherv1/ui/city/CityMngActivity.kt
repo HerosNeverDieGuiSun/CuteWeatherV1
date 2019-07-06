@@ -33,9 +33,17 @@ class CityMngActivity : AppCompatActivity() {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
         setContentView(R.layout.activity_city_mng)
         //添加当前定位城市
-        CityRepository.instance.data.add(
-            CityInfo(MyLocation.instance.city.value!!, "","","","","","","")
-        )
+        if (MyLocation.instance.isChanged) {
+            MyLocation.instance.presentCity = MyLocation.instance.city.value!!
+            MyLocation.instance.isChanged = false
+        }
+        if (CityRepository.instance.data.size == 0) {
+            CityRepository.instance.data.add(
+                CityInfo(MyLocation.instance.presentCity, "", "", "", "", "", "", "")
+            )
+        } else {
+            CityRepository.instance.data[0] = CityInfo(MyLocation.instance.presentCity, "", "", "", "", "", "", "")
+        }
 
         val saveData = sharedPreferences.getString("city", null)
         if (saveData != null){
@@ -54,9 +62,7 @@ class CityMngActivity : AppCompatActivity() {
             object: CityItemClickListener{
                 override fun onItemClick(position: Int) {
                     //点击事件
-                    val intentBack = Intent()
-                    intentBack.putExtra("cityName", CityRepository.instance.data[position].name)
-                    setResult(2, intentBack)
+                    MyLocation.instance.city.value = CityRepository.instance.data[position].name
                     finish()
                 }
 

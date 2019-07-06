@@ -37,5 +37,5 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:id="@+id/module_rv"/>
+            app:layout_constraintEnd_toEndOf="parent" android:id="@+id/module_rv" android:layout_marginTop="4dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

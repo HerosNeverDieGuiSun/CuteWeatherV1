@@ -10,7 +10,7 @@ public class ChangeToWeek {
         return parseDateToYearMonthDayWeek(date);
     }
 
-    private int parseDateToYearMonthDayWeek(Date date){
+    public int parseDateToYearMonthDayWeek(Date date){
 
         //获取默认选中的日期的年月日星期的值，并赋值
         Calendar calendar = Calendar.getInstance();//日历对象

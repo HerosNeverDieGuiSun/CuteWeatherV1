@@ -3,16 +3,221 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        tools:context=".ui.FragmentDaily">
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        tools:context=".ui.daily.FragmentDaily">
 
     <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             app:cardBackgroundColor="@android:color/background_light"
             android:layout_centerInParent="true"
             app:cardCornerRadius="12dp"
             android:elevation="8dp"
+            android:id="@+id/cv">
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <ImageView
+                    android:src="@drawable/weather_cloudy_grey"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/image_day3"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/date_day3"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/image_day2" android:layout_marginStart="8dp"/>
+            <ImageView
+                    android:src="@drawable/weather_cloudy_grey"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/image_day1"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/date_day1"
+                    app:layout_constraintEnd_toStartOf="@+id/image_day2" android:layout_marginEnd="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/image_tomorrow" android:layout_marginStart="8dp"/>
+            <ImageView
+                    android:src="@drawable/weather_cloudy_grey"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/image_tomorrow" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/date_tomorrow"
+                    app:layout_constraintEnd_toStartOf="@+id/image_day1" android:layout_marginEnd="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/image_today" android:layout_marginStart="8dp"/>
+            <TextView
+                    android:text="07/05"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/date_day1"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/day1"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/image_day1"
+                    app:layout_constraintEnd_toEndOf="@+id/image_day1"/>
+            <TextView
+                    android:text="07/05"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/date_day2"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/day2"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/image_day2"
+                    app:layout_constraintEnd_toEndOf="@+id/image_day2"/>
+            <TextView
+                    android:text="07/05"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/date_day3"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/day3"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/image_day3"
+                    app:layout_constraintEnd_toEndOf="@+id/image_day3"/>
+            <TextView
+                    android:text="07/05"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/date_today"
+                    android:textSize="12sp" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/today"
+                    app:layout_constraintStart_toStartOf="@+id/image_today"
+                    app:layout_constraintEnd_toEndOf="@+id/image_today"/>
+            <TextView
+                    android:text="每日预报"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView2" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp" android:textSize="14sp"/>
+            <androidx.constraintlayout.widget.Guideline
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" app:layout_constraintGuide_begin="27dp"
+                    android:id="@+id/guideline2"/>
+            <TextView
+                    android:text="@string/today"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/today"
+                    android:textSize="14sp"
+                    android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="@+id/date_today"
+                    app:layout_constraintEnd_toEndOf="@+id/date_today"/>
+            <TextView
+                    android:text="@string/tomorrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tomorrow" android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="@+id/guideline2"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="@+id/date_tomorrow"
+                    app:layout_constraintEnd_toEndOf="@+id/date_tomorrow"/>
+            <TextView
+                    android:text="周一"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/day1" android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="@+id/guideline2"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="@+id/date_day1"
+                    app:layout_constraintEnd_toEndOf="@+id/date_day1"/>
+            <TextView
+                    android:text="周二"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/day2" android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="@+id/date_day2"
+                    app:layout_constraintEnd_toEndOf="@+id/date_day2" android:layout_marginTop="8dp"
             />
+            <TextView
+                    android:text="周三"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/day3" android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="@+id/date_day3"
+                    app:layout_constraintEnd_toEndOf="@+id/date_day3" android:layout_marginTop="8dp"
+            />
+            <TextView
+                    android:text="07/05"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/date_tomorrow" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tomorrow"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/image_tomorrow"
+                    app:layout_constraintEnd_toEndOf="@+id/image_tomorrow"/>
+            <ImageView
+                    android:src="@drawable/weather_cloudy_grey"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/image_today"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/date_today"
+                    app:layout_constraintEnd_toStartOf="@+id/image_tomorrow" android:layout_marginEnd="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"/>
+            <ImageView
+                    android:src="@drawable/weather_cloudy_grey"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/image_day2"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/date_day2"
+                    app:layout_constraintEnd_toStartOf="@+id/image_day3" android:layout_marginEnd="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/image_day1" android:layout_marginStart="8dp"/>
+
+            <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/chart"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/weather_day1"></com.github.mikephil.charting.charts.LineChart>
+            <TextView
+                    android:text="晴"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/weather_today" app:layout_constraintStart_toStartOf="@+id/image_today"
+                    app:layout_constraintEnd_toEndOf="@+id/image_today"
+                    app:layout_constraintTop_toBottomOf="@+id/image_today"/>
+            <TextView
+                    android:text="多云"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/weather_tomorrow"
+                    app:layout_constraintTop_toBottomOf="@+id/image_tomorrow"
+                    app:layout_constraintStart_toStartOf="@+id/image_tomorrow"
+                    app:layout_constraintEnd_toEndOf="@+id/image_tomorrow"/>
+            <TextView
+                    android:text="阴"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/weather_day1"
+                    app:layout_constraintTop_toBottomOf="@+id/image_day1"
+                    app:layout_constraintStart_toStartOf="@+id/image_day1"
+                    app:layout_constraintEnd_toEndOf="@+id/image_day1"/>
+            <TextView
+                    android:text="雷阵雨"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/weather_day2"
+                    app:layout_constraintTop_toBottomOf="@+id/image_day2"
+                    app:layout_constraintStart_toStartOf="@+id/image_day2"
+                    app:layout_constraintEnd_toEndOf="@+id/image_day2"/>
+            <TextView
+                    android:text="多云"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/weather_day3"
+                    app:layout_constraintTop_toBottomOf="@+id/image_day3"
+                    app:layout_constraintStart_toStartOf="@+id/image_day3"
+                    app:layout_constraintEnd_toEndOf="@+id/image_day3"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
 </FrameLayout>

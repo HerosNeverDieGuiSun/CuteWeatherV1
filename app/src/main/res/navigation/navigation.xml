@@ -6,10 +6,12 @@
             app:startDestination="@id/fragmentWeather">
     <fragment android:id="@+id/fragmentWeather" android:name="com.example.cuteweatherv1.ui.briefly.FragmentWeather"
               android:label="fragment_weather" tools:layout="@layout/fragment_weather"/>
-    <fragment android:id="@+id/fragmentDaily" android:name="com.example.cuteweatherv1.ui.FragmentDaily"
+    <fragment android:id="@+id/fragmentDaily" android:name="com.example.cuteweatherv1.ui.daily.FragmentDaily"
               android:label="fragment_daily" tools:layout="@layout/fragment_daily"/>
     <fragment android:id="@+id/fragmentHourly" android:name="com.example.cuteweatherv1.ui.FragmentHourly"
               android:label="fragment_hourly" tools:layout="@layout/fragment_hourly"/>
     <fragment android:id="@+id/fragmentAir" android:name="com.example.cuteweatherv1.ui.air.FragmentAir"
               android:label="fragment_air" tools:layout="@layout/fragment_air"/>
+    <fragment android:id="@+id/fragmentSunrise" android:name="com.example.cuteweatherv1.ui.sunrise.FragmentSunrise"
+              android:label="fragment_sunrise" tools:layout="@layout/fragment_sunrise"/>
 </navigation>

@@ -2,9 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.cuteweatherv1">
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
 
     <application
             android:name=".WeatherApplication"
@@ -17,14 +19,21 @@
             android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".ui.lifeSuggest.SuggestInfoActivity">
         </activity>
+        <activity android:name=".ui.module.ModuleMngActivity">
+        </activity>
         <activity
                 android:name=".ui.city.CityChooseActivity"
                 android:theme="@style/DefaultCityPickerTheme">
         </activity>
+
         <activity android:name=".ui.city.CityMngActivity">
         </activity>
+
+
+
         <activity android:name=".ui.air.AirInfoActivity">
         </activity>
+
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -32,6 +41,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

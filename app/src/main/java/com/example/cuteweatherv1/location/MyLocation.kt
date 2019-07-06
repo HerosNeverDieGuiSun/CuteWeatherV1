@@ -30,6 +30,8 @@ class MyLocation {
 
     var latitude = ""
     var longitude = ""
+    var presentCity = ""
+    var isChanged = true
     val city = MutableLiveData<String>()
     val briefInfo = MutableLiveData<Result>()
 

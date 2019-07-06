@@ -8,6 +8,7 @@ import android.os.Handler
 import android.preference.PreferenceManager
 import android.widget.Toast
 import com.example.cuteweatherv1.R
+import com.example.cuteweatherv1.location.MyLocation
 import com.example.cuteweatherv1.repository.city.CityRepository
 import com.example.cuteweatherv1.repository.city.DealCityInfo
 import com.example.cuteweatherv1.repository.city.data.CityInfo
@@ -16,6 +17,7 @@ import com.zaaach.citypicker.CityPicker
 import com.zaaach.citypicker.adapter.OnPickListener
 import com.zaaach.citypicker.model.City
 import com.zaaach.citypicker.model.HotCity
+import com.zaaach.citypicker.model.LocateState
 import com.zaaach.citypicker.model.LocatedCity
 
 /**
@@ -35,11 +37,15 @@ class CityChooseActivity : AppCompatActivity() {
         hotCities.add(HotCity("广州", "广东", "101280101"))
         hotCities.add(HotCity("深圳", "广东", "101280601"))
         hotCities.add(HotCity("杭州", "浙江", "101210101"))
+        hotCities.add(HotCity("南京", "江苏", "101210101"))
+        hotCities.add(HotCity("苏州", "江苏", "101210101"))
+        hotCities.add(HotCity("天津", "天津", "101210101"))
+        hotCities.add(HotCity("合肥", "安徽", "101210101"))
 
         CityPicker.from(this) //activity或者fragment
             .enableAnimation(true)	//启用动画效果，默认无
             .setAnimationStyle(0)	//自定义动画
-            .setLocatedCity(LocatedCity("杭州", "浙江", "101210101"))  //APP自身已定位的城市，传null会自动定位（默认）
+            .setLocatedCity(LocatedCity(MyLocation.instance.city.value!!, "", ""))  //APP自身已定位的城市，传null会自动定位（默认）
             .setHotCities(hotCities)	//指定热门城市
             .setOnPickListener(object : OnPickListener {
                 override fun onPick(position: Int, data: City){

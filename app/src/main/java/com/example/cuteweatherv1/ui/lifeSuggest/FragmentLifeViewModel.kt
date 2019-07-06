@@ -21,8 +21,9 @@ import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
 
-/* 开发者：--钱坤
-   内容：主页面生活建议模块
+/**
+ * Created by 钱坤
+ * 内容：主页面生活建议模块
  */
 
 class FragmentLifeViewModel : ViewModel() {

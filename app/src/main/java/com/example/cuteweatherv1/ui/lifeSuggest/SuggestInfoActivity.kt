@@ -1,5 +1,11 @@
 package com.example.cuteweatherv1.ui.lifeSuggest
 
+
+/**
+ * Created by 钱坤
+ * 内容：生活建议详细信息页面
+ */
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +17,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
 
 class SuggestInfoActivity : AppCompatActivity() {
 

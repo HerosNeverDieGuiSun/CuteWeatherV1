@@ -12,6 +12,7 @@ import com.example.cuteweatherv1.R
 import com.example.cuteweatherv1.location.MyLocation
 import com.example.cuteweatherv1.repository.Reposition
 import com.example.cuteweatherv1.repository.daily.DailyOperate
+import com.example.cuteweatherv1.repository.hourly.HourlyOperate
 import com.example.cuteweatherv1.ui.briefly.data.Result
 import kotlinx.android.synthetic.main.fragment_weather.*
 
@@ -46,6 +47,13 @@ class FragmentWeather : Fragment() {
             //使用新数据更新界面
             viewModel.getBriefInfo()
             DailyOperate.instance.getDailyData()
+            HourlyOperate.instance.getHourlyInfo()
+        })
+
+        DailyOperate.instance.dailyInfo.observe(this, Observer<List<com.example.cuteweatherv1.repository.daily.data.Result> > {
+            var dayInfo = it?.get(0)?.daily?.get(0)
+            high_temp.text = dayInfo?.high + "°"
+            low_temp.text = dayInfo?.low + "°"
         })
 
         MyLocation.instance.briefInfo.observe(this, Observer<Result> {

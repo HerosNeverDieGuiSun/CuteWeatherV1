@@ -19,7 +19,6 @@ import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import kotlinx.android.synthetic.main.fragment_daily.*
 import kotlinx.android.synthetic.main.fragment_daily.date_today
-import kotlinx.android.synthetic.main.fragment_weather.*
 import java.text.SimpleDateFormat
 
 
@@ -43,7 +42,7 @@ class FragmentDaily : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(FragmentDailyViewModel::class.java)
-        lineChart = activity!!.findViewById(R.id.chart)
+        lineChart = chart
 
         DailyOperate.instance.dailyInfo.observe(this, Observer<List<Result> > {
 

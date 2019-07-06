@@ -22,6 +22,7 @@ import com.example.cuteweatherv1.repository.sunrise.SunriseJson
 import com.example.cuteweatherv1.repository.sunrise.data.SaveSunrise
 import com.example.cuteweatherv1.ui.sunrise.library.SetSunrise
 import com.gyf.immersionbar.ImmersionBar
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_sunrise.*
 import kotlin.collections.ArrayList
 
@@ -36,16 +37,21 @@ class MainActivity : AppCompatActivity() {
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        toolbar.setOnMenuItemClickListener { item ->
-            when(item?.itemId) {
-                R.id.change_city -> {
-                    val intent = Intent()
-                    intent.setClass(applicationContext, CityMngActivity::class.java)
-
-                    startActivity(intent)
-                }
-            }
-            true
+//        toolbar.setOnMenuItemClickListener { item ->
+//            when(item?.itemId) {
+//                R.id.change_city -> {
+//                    val intent = Intent()
+//                    intent.setClass(applicationContext, CityMngActivity::class.java)
+//
+//                    startActivity(intent)
+//                }
+//            }
+//            true
+//        }
+        change_city.setOnClickListener {
+            val intent = Intent()
+            intent.setClass(applicationContext, CityMngActivity::class.java)
+            startActivity(intent)
         }
         ImmersionBar.with(this).statusBarColor(R.color.colorPrimary).init()
 
@@ -55,39 +61,39 @@ class MainActivity : AppCompatActivity() {
 
         //mSunriseView = findViewById(R.id.sun)
        // startSunAnim(6,18)
-        val sunriseJson = SunriseJson()
-        sunriseJson.deal()
-        var sunrise:Int = 0
-        var sunset:Int = 0
-        SaveSunrise.instance.sun.observe(this,object : Observer<ArrayList<String>>{
-            override fun onChanged(t: ArrayList<String>?) {
-
-                val textSunrise = SetSunrise()
-//                textSunrise.deal(findViewById(R.id.sun),6,18)
-//                Log.e("my","--"+ SaveSunrise.instance.sun.value!!.get(0)+"-----"+SaveSunrise.instance.sun.value!!.get(1))
-                Tsunrise.text = SaveSunrise.instance.sun.value!!.get(0)
-                Tsunset.text = SaveSunrise.instance.sun.value!!.get(1)
-                var sunriseHour = SaveSunrise.instance.sun.value!!.get(0).substring(0,2)
-                var sunsetHour = SaveSunrise.instance.sun.value!!.get(1).substring(0,2)
-                var sunriseMin = SaveSunrise.instance.sun.value!!.get(0).substring(3,5)
-                var sunsetMin = SaveSunrise.instance.sun.value!!.get(1).substring(3,5)
-                if (sunriseMin.toInt()> 30){
-                    if (sunsetMin.toInt()>30){
-                        textSunrise.deal(findViewById(R.id.sun),sunriseHour.toInt()+1,sunsetHour.toInt()+1)
-                    } else {
-                        textSunrise.deal(findViewById(R.id.sun),sunriseHour.toInt()+1,sunsetHour.toInt())
-                    }
-                } else {
-                    if (sunsetMin.toInt()>30){
-                        textSunrise.deal(findViewById(R.id.sun),sunriseHour.toInt(),sunsetHour.toInt()+1)
-                    } else {
-                        textSunrise.deal(findViewById(R.id.sun),sunriseHour.toInt(),sunsetHour.toInt())
-                    }
-                }
-                Log.e("my","-----"+sunriseHour+"--------"+sunsetHour)
-            }
-
-        })
+//        val sunriseJson = SunriseJson()
+//        sunriseJson.deal()
+//        var sunrise:Int = 0
+//        var sunset:Int = 0
+//        SaveSunrise.instance.sun.observe(this,object : Observer<ArrayList<String>>{
+//            override fun onChanged(t: ArrayList<String>?) {
+//
+//                val textSunrise = SetSunrise()
+////                textSunrise.deal(findViewById(R.id.sun),6,18)
+////                Log.e("my","--"+ SaveSunrise.instance.sun.value!!.get(0)+"-----"+SaveSunrise.instance.sun.value!!.get(1))
+//                Tsunrise.text = SaveSunrise.instance.sun.value!!.get(0)
+//                Tsunset.text = SaveSunrise.instance.sun.value!!.get(1)
+//                var sunriseHour = SaveSunrise.instance.sun.value!!.get(0).substring(0,2)
+//                var sunsetHour = SaveSunrise.instance.sun.value!!.get(1).substring(0,2)
+//                var sunriseMin = SaveSunrise.instance.sun.value!!.get(0).substring(3,5)
+//                var sunsetMin = SaveSunrise.instance.sun.value!!.get(1).substring(3,5)
+//                if (sunriseMin.toInt()> 30){
+//                    if (sunsetMin.toInt()>30){
+//                        textSunrise.deal(findViewById(R.id.sun),sunriseHour.toInt()+1,sunsetHour.toInt()+1)
+//                    } else {
+//                        textSunrise.deal(findViewById(R.id.sun),sunriseHour.toInt()+1,sunsetHour.toInt())
+//                    }
+//                } else {
+//                    if (sunsetMin.toInt()>30){
+//                        textSunrise.deal(findViewById(R.id.sun),sunriseHour.toInt(),sunsetHour.toInt()+1)
+//                    } else {
+//                        textSunrise.deal(findViewById(R.id.sun),sunriseHour.toInt(),sunsetHour.toInt())
+//                    }
+//                }
+//                Log.e("my","-----"+sunriseHour+"--------"+sunsetHour)
+//            }
+//
+//        })
 
     }
 //    private  fun startSunAnim(sunrise: Int, sunset: Int) {

@@ -17,7 +17,7 @@ import java.util.*
 class DealAirJson {
     fun deal(position:String){
         var temp: String = "beijing"
-        if (position != null){
+        if (position != "nul"){
             temp = position
         }
         val retrofit = Retrofit.Builder()

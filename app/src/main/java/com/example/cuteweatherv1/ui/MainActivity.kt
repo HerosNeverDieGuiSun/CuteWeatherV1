@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -57,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
         getLastKnownLocation()
 
-        Log.e("mylog", "${MyLocation.instance.latitude} ${MyLocation.instance.longitude}")
+        //Log.e("mylog", "${MyLocation.instance.latitude} ${MyLocation.instance.longitude}")
 
         //mSunriseView = findViewById(R.id.sun)
        // startSunAnim(6,18)
@@ -108,52 +109,64 @@ class MainActivity : AppCompatActivity() {
 //        }
 //    }
 
+    inner class MyLocationListener : LocationListener {
+        override fun onLocationChanged(location: Location?) {
+            if (location != null) {
+                MyLocation.instance.latitude = location.latitude.toString()
+                MyLocation.instance.longitude = location.longitude.toString()
+            }
+        }
+
+        override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+        }
+
+        override fun onProviderEnabled(provider: String?) {
+        }
+
+        override fun onProviderDisabled(provider: String?) {
+        }
+
+    }
+
     private fun getLastKnownLocation() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
             != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
         }
         val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        val providers = locationManager.allProviders
-        for (provider in providers) {
-            val location = locationManager.getLastKnownLocation(provider)
-            if (location != null) {
-                MyLocation.instance.latitude = location.latitude.toString()
-                MyLocation.instance.longitude = location.longitude.toString()
-            }
-        }
-        val locationListener = object : LocationListener {
-            override fun onLocationChanged(location: Location?) {
+        // 判断是否开启GPS和网络
+        val gps = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+        val network = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+        if (!gps || !network) {
+            Toast.makeText(applicationContext, "GPS未开启,请开启GPS再使用", Toast.LENGTH_SHORT).show()
+            MyLocation.instance.city.value = "beijing"
+            MyLocation.instance.defaultCity.value = true
+        } else {
+            //获取定位
+            val providers = locationManager.allProviders
+            for (provider in providers) {
+                val location = locationManager.getLastKnownLocation(provider)
                 if (location != null) {
                     MyLocation.instance.latitude = location.latitude.toString()
                     MyLocation.instance.longitude = location.longitude.toString()
                 }
             }
-
-            override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0F, MyLocationListener())
+            if(LocationManager.GPS_PROVIDER == null) {
+                val location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+                if (location != null) {
+                    MyLocation.instance.latitude = location.latitude.toString()
+                    MyLocation.instance.longitude = location.longitude.toString()
+                }
+            } else {
+                val location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+                if (location != null) {
+                    MyLocation.instance.latitude = location.latitude.toString()
+                    MyLocation.instance.longitude = location.longitude.toString()
+                }
             }
-
-            override fun onProviderEnabled(provider: String?) {
-            }
-
-            override fun onProviderDisabled(provider: String?) {
-            }
+            MyLocation.instance.defaultCity.value = false
         }
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0F, locationListener)
-        if(LocationManager.NETWORK_PROVIDER == null) {
-            val location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
-            if (location != null) {
-                MyLocation.instance.latitude = location.latitude.toString()
-                MyLocation.instance.longitude = location.longitude.toString()
-            }
-        } else {
-            val location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
-            if (location != null) {
-                MyLocation.instance.latitude = location.latitude.toString()
-                MyLocation.instance.longitude = location.longitude.toString()
-            }
-        }
-
     }
 
 

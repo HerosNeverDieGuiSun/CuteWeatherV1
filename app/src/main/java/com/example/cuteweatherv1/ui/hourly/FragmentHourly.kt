@@ -2,6 +2,7 @@ package com.example.cuteweatherv1.ui.hourly
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.cuteweatherv1.R
 import com.example.cuteweatherv1.adapter.hourly.HourlyAdapter
+import com.example.cuteweatherv1.location.MyLocation
 import com.example.cuteweatherv1.repository.hourly.Hourly
 import com.example.cuteweatherv1.repository.hourly.HourlyOperate
 import com.example.cuteweatherv1.repository.hourly.data.Result
@@ -38,6 +40,15 @@ class FragmentHourly : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(FragmentHourlyViewModel::class.java)
 
+        MyLocation.instance.defaultCity.observe(this, Observer<Boolean> {
+            if (!MyLocation.instance.defaultCity.value!!) {
+                MyLocation.instance.getLocation()
+            }
+        })
+        MyLocation.instance.city.observe(this, Observer<String> {
+            viewModel.getHourlyInfo()
+        })
+
         HourlyOperate.instance.hourlyInfo.observe(this, Observer<List<Result> > {
             val res = it?.get(0)?.hourly
             val data = ArrayList<Hourly>()
@@ -46,6 +57,8 @@ class FragmentHourly : Fragment() {
                 val time = r.time.substring(11, 16)
                 data.add(Hourly(time, setImage(r.text), r.temperature + "°C"))
             }
+            val first = res[0]
+            data.set(0, Hourly("现在", setImage(first.text), first.temperature + "°C"))
 
             adapter = HourlyAdapter(activity!!.applicationContext, R.layout.hourly_item, data)
 

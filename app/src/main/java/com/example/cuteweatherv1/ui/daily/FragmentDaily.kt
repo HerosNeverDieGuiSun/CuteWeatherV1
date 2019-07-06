@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.lifecycle.Observer
 import com.example.cuteweatherv1.R
+import com.example.cuteweatherv1.location.MyLocation
 import com.example.cuteweatherv1.repository.daily.DailyOperate
 import com.example.cuteweatherv1.repository.daily.data.Result
 import com.github.mikephil.charting.charts.LineChart
@@ -43,6 +44,15 @@ class FragmentDaily : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(FragmentDailyViewModel::class.java)
         lineChart = chart
+
+        MyLocation.instance.defaultCity.observe(this, Observer<Boolean> {
+            if (!MyLocation.instance.defaultCity.value!!) {
+                MyLocation.instance.getLocation()
+            }
+        })
+        MyLocation.instance.city.observe(this, Observer<String> {
+            viewModel.getDailyInfo()
+        })
 
         DailyOperate.instance.dailyInfo.observe(this, Observer<List<Result> > {
 

@@ -7,6 +7,583 @@
         android:layout_height="match_parent"
         tools:context=".ui.lifeSuggest.SuggestInfoActivity">
 
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" app:layout_constraintBottom_toBottomOf="parent"
+    >
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="vertical">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardView3"
+                        app:cardCornerRadius="12dp"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp" app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="16dp">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="8dp"
+                            app:layout_constraintTop_toTopOf="parent">
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/titleTour" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_marginStart="8dp" android:textSize="18sp"
+                                app:layout_constraintStart_toEndOf="@+id/imageViewTour"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/infoTour" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toBottomOf="@+id/titleTour"
+                                android:layout_marginStart="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginBottom="16dp" android:textSize="14sp"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.486"
+                                app:layout_constraintVertical_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/imageViewTour"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/suggestTour" app:layout_constraintStart_toEndOf="@+id/titleTour"
+                                android:layout_marginStart="8dp"
+                                app:layout_constraintTop_toTopOf="@+id/titleTour"
+                                app:layout_constraintBottom_toBottomOf="@+id/titleTour" android:textSize="14sp"
+                                android:textColor="@color/cp_color_gray"/>
+                        <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                app:layout_constraintWidth_percent="0.14"
+                                app:layout_constraintDimensionRatio="w,1:1"
+                                app:srcCompat="@drawable/tour3"
+                                android:id="@+id/imageViewTour" android:layout_marginStart="8dp"
+                                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        app:cardCornerRadius="12dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardView6"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView5"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+                        android:layout_marginTop="16dp">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="8dp"
+                            app:layout_constraintTop_toTopOf="parent">
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/titleShopping" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_marginStart="8dp" android:textSize="18sp"
+                                app:layout_constraintStart_toEndOf="@+id/imageViewShopping"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/infoShopping" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toBottomOf="@+id/titleShopping"
+                                android:layout_marginStart="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginBottom="16dp" android:textSize="14sp"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.486"
+                                app:layout_constraintVertical_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/imageViewShopping"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/suggestShopping"
+                                app:layout_constraintStart_toEndOf="@+id/titleShopping"
+                                android:layout_marginStart="8dp"
+                                app:layout_constraintTop_toTopOf="@+id/titleShopping"
+                                app:layout_constraintBottom_toBottomOf="@+id/titleShopping" android:textSize="14sp"
+                                android:textColor="@color/cp_color_gray"/>
+                        <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                app:layout_constraintWidth_percent="0.14"
+                                app:layout_constraintDimensionRatio="w,1:1"
+                                app:srcCompat="@drawable/shopping3"
+                                android:id="@+id/imageViewShopping" android:layout_marginStart="8dp"
+                                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                        app:cardCornerRadius="12dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardView5"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView4"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+                        android:layout_marginTop="16dp">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="8dp"
+                            app:layout_constraintTop_toTopOf="parent">
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/titleFishing" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_marginStart="8dp" android:textSize="18sp"
+                                app:layout_constraintStart_toEndOf="@+id/imageViewFishing"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/infoFishing" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toBottomOf="@+id/titleFishing"
+                                android:layout_marginStart="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginBottom="16dp" android:textSize="14sp"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.486"
+                                app:layout_constraintVertical_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/imageViewFishing"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/suggestFishing" app:layout_constraintStart_toEndOf="@+id/titleFishing"
+                                android:layout_marginStart="8dp"
+                                app:layout_constraintTop_toTopOf="@+id/titleFishing"
+                                app:layout_constraintBottom_toBottomOf="@+id/titleFishing" android:textSize="14sp"
+                                android:textColor="@color/cp_color_gray"/>
+                        <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                app:layout_constraintWidth_percent="0.14"
+                                app:layout_constraintDimensionRatio="w,1:1"
+                                app:srcCompat="@drawable/fishing3"
+                                android:id="@+id/imageViewFishing" android:layout_marginStart="8dp"
+                                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                        app:cardCornerRadius="12dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardView2"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginStart="0dp" android:layout_marginEnd="0dp"
+                            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="0dp"
+                            app:layout_constraintTop_toTopOf="parent">
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/titleCold" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_marginStart="8dp" android:textSize="18sp"
+                                app:layout_constraintStart_toEndOf="@+id/imageViewCold"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/infoCold" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toBottomOf="@+id/titleCold"
+                                android:layout_marginStart="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginBottom="16dp" android:textSize="14sp"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.486"
+                                app:layout_constraintVertical_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/imageViewCold"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/suggestCold" app:layout_constraintStart_toEndOf="@+id/titleCold"
+                                android:layout_marginStart="8dp"
+                                app:layout_constraintTop_toTopOf="@+id/titleCold"
+                                app:layout_constraintBottom_toBottomOf="@+id/titleCold" android:textSize="14sp"
+                                android:textColor="@color/cp_color_gray"/>
+                        <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                app:layout_constraintWidth_percent="0.14"
+                                app:layout_constraintDimensionRatio="w,1:1"
+                                app:srcCompat="@drawable/cold3"
+                                android:id="@+id/imageViewCold" android:layout_marginStart="8dp"
+                                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                        app:cardCornerRadius="12dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardView4"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView3"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+                        android:layout_marginTop="16dp">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="8dp"
+                            app:layout_constraintTop_toTopOf="parent">
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/titleTranslate" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_marginStart="8dp" android:textSize="18sp"
+                                app:layout_constraintStart_toEndOf="@+id/imageViewTranslate"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/infoTranslate" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toBottomOf="@+id/titleTranslate"
+                                android:layout_marginStart="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginBottom="16dp" android:textSize="14sp"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.486"
+                                app:layout_constraintVertical_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/imageViewTranslate"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/suggestTranslate"
+                                app:layout_constraintStart_toEndOf="@+id/titleTranslate"
+                                android:layout_marginStart="8dp"
+                                app:layout_constraintTop_toTopOf="@+id/titleTranslate"
+                                app:layout_constraintBottom_toBottomOf="@+id/titleTranslate" android:textSize="14sp"
+                                android:textColor="@color/cp_color_gray"/>
+                        <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                app:layout_constraintWidth_percent="0.14"
+                                app:layout_constraintDimensionRatio="w,1:1"
+                                app:srcCompat="@drawable/translate3"
+                                android:id="@+id/imageViewTranslate" android:layout_marginStart="8dp"
+                                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                        app:cardCornerRadius="12dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardView"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+                        app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginStart="0dp" android:layout_marginEnd="0dp"
+                            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="0dp"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/titleWear" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_marginStart="8dp" android:textSize="18sp"
+                                app:layout_constraintStart_toEndOf="@+id/imageViewWear"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/infoWear" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toBottomOf="@+id/titleWear"
+                                android:layout_marginStart="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginBottom="16dp" android:textSize="14sp"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.486"
+                                app:layout_constraintVertical_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/imageViewWear"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/suggestWear" app:layout_constraintStart_toEndOf="@+id/titleWear"
+                                android:layout_marginStart="8dp"
+                                app:layout_constraintTop_toTopOf="@+id/titleWear"
+                                app:layout_constraintBottom_toBottomOf="@+id/titleWear" android:textSize="14sp"
+                                android:textColor="@color/cp_color_gray"/>
+                        <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                app:layout_constraintWidth_percent="0.14"
+                                app:layout_constraintDimensionRatio="w,1:1"
+                                app:srcCompat="@drawable/wear3"
+                                android:id="@+id/imageViewWear" android:layout_marginStart="8dp"
+                                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                        app:cardCornerRadius="12dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardView7"
+                        android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/cardView6"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginStart="0dp" android:layout_marginEnd="0dp"
+                            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="0dp"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/titleBeer" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_marginStart="8dp" android:textSize="18sp"
+                                app:layout_constraintStart_toEndOf="@+id/imageViewBeer"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/infoBeer" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toBottomOf="@+id/titleBeer"
+                                android:layout_marginStart="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginBottom="16dp" android:textSize="14sp"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.486"
+                                app:layout_constraintVertical_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/imageViewBeer"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/suggestBeer" app:layout_constraintStart_toEndOf="@+id/titleBeer"
+                                android:layout_marginStart="8dp"
+                                app:layout_constraintTop_toTopOf="@+id/titleBeer"
+                                app:layout_constraintBottom_toBottomOf="@+id/titleBeer" android:textSize="14sp"
+                                android:textColor="@color/cp_color_gray"/>
+                        <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                app:layout_constraintWidth_percent="0.14"
+                                app:layout_constraintDimensionRatio="w,1:1"
+                                app:srcCompat="@drawable/beer3"
+                                android:id="@+id/imageViewBeer" android:layout_marginStart="8dp"
+                                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                        app:cardCornerRadius="12dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardView8"
+                        android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/cardView7"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginStart="0dp" android:layout_marginEnd="0dp"
+                            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="0dp"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/titleNight" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_marginStart="8dp" android:textSize="18sp"
+                                app:layout_constraintStart_toEndOf="@+id/imageViewNight"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/infoNight" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toBottomOf="@+id/titleNight"
+                                android:layout_marginStart="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginBottom="16dp" android:textSize="14sp"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.486"
+                                app:layout_constraintVertical_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/imageViewNight"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/suggestNight" app:layout_constraintStart_toEndOf="@+id/titleNight"
+                                android:layout_marginStart="8dp"
+                                app:layout_constraintTop_toTopOf="@+id/titleNight"
+                                app:layout_constraintBottom_toBottomOf="@+id/titleNight" android:textSize="14sp"
+                                android:textColor="@color/cp_color_gray"/>
+                        <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                app:layout_constraintWidth_percent="0.14"
+                                app:layout_constraintDimensionRatio="w,1:1"
+                                app:srcCompat="@drawable/night3"
+                                android:id="@+id/imageViewNight" android:layout_marginStart="8dp"
+                                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                        app:cardCornerRadius="12dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardView9"
+                        android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/cardView8"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+                >
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginStart="0dp" android:layout_marginEnd="0dp"
+                            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="0dp"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/titleHeart" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_marginStart="8dp" android:textSize="18sp"
+                                app:layout_constraintStart_toEndOf="@+id/imageViewHeart"
+                        />
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/infoHeart" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toBottomOf="@+id/titleHeart"
+                                android:layout_marginStart="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginBottom="16dp" android:textSize="14sp"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.486"
+                                app:layout_constraintVertical_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/imageViewHeart"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/suggestHeart" app:layout_constraintStart_toEndOf="@+id/titleHeart"
+                                android:layout_marginStart="8dp"
+                                app:layout_constraintTop_toTopOf="@+id/titleHeart"
+                                app:layout_constraintBottom_toBottomOf="@+id/titleHeart" android:textSize="14sp"
+                                android:textColorHint="@color/cp_color_gray" android:textColor="@color/cp_color_gray"/>
+                        <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                app:layout_constraintWidth_percent="0.14"
+                                app:layout_constraintDimensionRatio="w,1:1"
+                                app:srcCompat="@drawable/heart3"
+                                android:id="@+id/imageViewHeart" android:layout_marginStart="8dp"
+                                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                        app:cardCornerRadius="12dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardView10"
+                        android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/cardView9"
+                        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="16dp"
+                        app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.598">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginStart="0dp" android:layout_marginEnd="0dp"
+                            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="0dp"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/titleDate" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_marginStart="8dp" android:textSize="18sp"
+                                app:layout_constraintStart_toEndOf="@+id/imageViewDate"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/infoDate" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toBottomOf="@+id/titleDate"
+                                android:layout_marginStart="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginBottom="16dp" android:textSize="14sp"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.486"
+                                app:layout_constraintVertical_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/imageViewDate"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/suggestDate" app:layout_constraintStart_toEndOf="@+id/titleDate"
+                                android:layout_marginStart="8dp"
+                                app:layout_constraintTop_toTopOf="@+id/titleDate"
+                                app:layout_constraintBottom_toBottomOf="@+id/titleDate" android:textSize="14sp"
+                                android:textColor="@color/cp_color_gray"/>
+                        <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                app:layout_constraintWidth_percent="0.14"
+                                app:layout_constraintDimensionRatio="w,1:1"
+                                app:srcCompat="@drawable/date3"
+                                android:id="@+id/imageViewDate" android:layout_marginStart="8dp"
+                                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
     <androidx.appcompat.widget.Toolbar
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -14,8 +591,9 @@
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             android:minHeight="?attr/actionBarSize"
             android:id="@+id/toolbar"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
         <TextView
                 android:id="@+id/toolbar_title"
                 android:layout_width="wrap_content"
@@ -24,58 +602,8 @@
                 android:text="今日建议"
                 android:singleLine="true"
                 android:textColor="#ffffff"
-                android:textSize="20sp" tools:layout_editor_absoluteY="14dp" tools:layout_editor_absoluteX="176dp"/>
+                android:textSize="20sp" tools:layout_editor_absoluteY="14dp"
+                tools:layout_editor_absoluteX="176dp"/>
     </androidx.appcompat.widget.Toolbar>
-    <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp" android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="16dp">
-        <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="0dp" android:layout_marginEnd="0dp"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="0dp"
-                app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                    android:text="TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/titleWear" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginStart="8dp" android:textSize="20sp"
-                    app:layout_constraintStart_toEndOf="@+id/imageView"/>
-            <TextView
-                    android:text="TextView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/infoWear" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/titleWear"
-                    android:layout_marginStart="8dp" app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginBottom="16dp" android:textSize="16sp" android:layout_marginEnd="16dp"
-                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.486"
-                    app:layout_constraintVertical_bias="0.0" app:layout_constraintStart_toEndOf="@+id/imageView"/>
-            <TextView
-                    android:text="TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/suggestWear" app:layout_constraintStart_toEndOf="@+id/titleWear"
-                    android:layout_marginStart="8dp"
-                    app:layout_constraintTop_toTopOf="@+id/titleWear"
-                    app:layout_constraintBottom_toBottomOf="@+id/titleWear" android:textSize="18sp"/>
-            <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:layout_constraintWidth_percent="0.14"
-                    app:layout_constraintDimensionRatio="w,1:1"
-                    app:srcCompat="@drawable/wear2"
-                    android:id="@+id/imageView" android:layout_marginStart="8dp"
-                    app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

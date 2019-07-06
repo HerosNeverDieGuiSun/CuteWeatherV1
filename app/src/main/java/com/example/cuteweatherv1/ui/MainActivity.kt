@@ -21,6 +21,7 @@ import com.example.cuteweatherv1.location.MyLocation
 import com.example.cuteweatherv1.ui.city.CityMngActivity
 import com.example.cuteweatherv1.repository.sunrise.SunriseJson
 import com.example.cuteweatherv1.repository.sunrise.data.SaveSunrise
+import com.example.cuteweatherv1.ui.module.ModuleMngActivity
 import com.example.cuteweatherv1.ui.sunrise.library.SetSunrise
 import com.gyf.immersionbar.ImmersionBar
 import kotlinx.android.synthetic.main.activity_main.*
@@ -54,6 +55,14 @@ class MainActivity : AppCompatActivity() {
             intent.setClass(applicationContext, CityMngActivity::class.java)
             startActivity(intent)
         }
+
+        module_mng.setOnClickListener {
+            val intent = Intent()
+            intent.setClass(applicationContext, ModuleMngActivity::class.java)
+            startActivity(intent)
+        }
+
+
         ImmersionBar.with(this).statusBarColor(R.color.colorPrimary).init()
 
         getLastKnownLocation()

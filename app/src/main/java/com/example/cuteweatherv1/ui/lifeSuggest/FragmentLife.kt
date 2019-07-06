@@ -16,8 +16,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-/* 开发者：--钱坤
-   内容：主页面生活建议模块
+/**
+ * Created by 钱坤
+ * 内容：主页面生活建议模块
  */
 class FragmentLife : Fragment() {
 

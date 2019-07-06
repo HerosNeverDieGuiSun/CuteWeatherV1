@@ -31,11 +31,12 @@ class MyLocation {
     var latitude = ""
     var longitude = ""
     var defaultCity = MutableLiveData<Boolean>()
+    var presentCity = ""
+    var isChanged = true
     val city = MutableLiveData<String>()
     val briefInfo = MutableLiveData<Result>()
 
     fun getLocation() {
-        Log.e("mylog", "$latitude $longitude")
         val retrofit = Retrofit.Builder()
             .baseUrl(Reposition.GPSURL)
             .addConverterFactory(GsonConverterFactory.create()).build()
@@ -49,7 +50,6 @@ class MyLocation {
                     Log.e("mylog",t.message)
                 }
             })
-
     }
 
     fun getBriefInfo() {

@@ -188,4 +188,5 @@ class MainActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         getLastKnownLocation()
     }
+    
 }

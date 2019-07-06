@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 class SaveSunrise {
 
     val sun = MutableLiveData<ArrayList<String>>()
-    val sunset = MutableLiveData<String>()
 
     private constructor(){
         //无

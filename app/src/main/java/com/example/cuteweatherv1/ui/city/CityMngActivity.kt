@@ -17,6 +17,7 @@ import com.example.cuteweatherv1.repository.city.data.CityInfo
 import kotlinx.android.synthetic.main.activity_city_mng.*
 import android.widget.TextView
 import android.graphics.Color
+import com.example.cuteweatherv1.location.MyLocation
 
 
 /**
@@ -33,7 +34,7 @@ class CityMngActivity : AppCompatActivity() {
         setContentView(R.layout.activity_city_mng)
         //添加当前定位城市
         CityRepository.instance.data.add(
-            CityInfo("南京", "","","","","","","")
+            CityInfo(MyLocation.instance.city.value!!, "","","","","","","")
         )
 
         val saveData = sharedPreferences.getString("city", null)
@@ -53,6 +54,9 @@ class CityMngActivity : AppCompatActivity() {
             object: CityItemClickListener{
                 override fun onItemClick(position: Int) {
                     //点击事件
+                    val intentBack = Intent()
+                    intentBack.putExtra("cityName", CityRepository.instance.data[position].name)
+                    setResult(2, intentBack)
                     finish()
                 }
 

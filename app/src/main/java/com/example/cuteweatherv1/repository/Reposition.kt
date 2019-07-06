@@ -15,5 +15,6 @@ class Reposition {
         const val AIRDAILY = "v3/air/daily.json"
         const val AIR = "v3/air/now.json?"
         const val SUNRISE = "v3/geo/sun.json"
+        const val TIP = "v3/weather/alarm.json"
     }
 }

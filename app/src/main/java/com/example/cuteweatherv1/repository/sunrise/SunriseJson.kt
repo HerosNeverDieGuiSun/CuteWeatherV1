@@ -11,13 +11,17 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class SunriseJson {
-    fun deal(){
+    fun deal(position:String){
+        var temp: String = "beijing"
+        if (position != "nul"){
+            temp = position
+        }
         val retrofit = Retrofit.Builder()
             .baseUrl(Reposition.BASEURL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(SunriseServ::class.java)
-        service.getinfo(Reposition.KEY,"nanjing")
+        service.getinfo(Reposition.KEY,temp)
             .enqueue(object : Callback<SunriseData> {
                 override fun onFailure(call: Call<SunriseData>, t: Throwable) {
                     Log.e("my","获取数据失败")

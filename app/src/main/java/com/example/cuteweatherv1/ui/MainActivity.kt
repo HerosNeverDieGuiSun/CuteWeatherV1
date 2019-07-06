@@ -145,8 +145,8 @@ class MainActivity : AppCompatActivity() {
         val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         // 判断是否开启GPS和网络
         val gps = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-        val network = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
-        if (!gps || !network) {
+        //val network = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+        if (!gps ) {
             Toast.makeText(applicationContext, "GPS未开启,请开启GPS再使用", Toast.LENGTH_SHORT).show()
             MyLocation.instance.city.value = "beijing"
             MyLocation.instance.defaultCity.value = true

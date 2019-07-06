@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import com.example.cuteweatherv1.R
+import com.example.cuteweatherv1.location.MyLocation
 import com.example.cuteweatherv1.repository.notice.NoticeJson
 import com.example.cuteweatherv1.repository.notice.data.SaveNotice
 import kotlinx.android.synthetic.main.fragment_notice.*
@@ -35,7 +36,14 @@ class FragmentNotice : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         var noticeJson = NoticeJson()
-        noticeJson.deal()
+        var city = "beijing"
+        MyLocation.instance.city.observe(this, object : Observer<String> {
+            override fun onChanged(t: String) {
+                city = t
+                noticeJson.deal(city)
+            }
+        })
+
         tip_view.setNormalTip()
         SaveNotice.instance.description.observe(this, Observer<String>{
             tip_view.setTipList(it)

@@ -11,13 +11,17 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class NoticeJson {
-    fun deal () {
+    fun deal (position:String) {
+        var temp: String = "beijing"
+        if (position != "nul"){
+            temp = position
+        }
         val retrofit = Retrofit.Builder()
             .baseUrl(Reposition.BASEURL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(NoticeServ::class.java)
-        service.getinfo(Reposition.KEY,"唐山")
+        service.getinfo(Reposition.KEY,temp)
             .enqueue(object : Callback<NoticeData> {
                 override fun onFailure(call: Call<NoticeData>, t: Throwable) {
                     Log.e("my","获取数据失败")

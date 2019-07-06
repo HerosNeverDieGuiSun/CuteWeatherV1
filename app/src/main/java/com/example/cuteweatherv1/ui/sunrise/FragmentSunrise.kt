@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import com.example.cuteweatherv1.R
+import com.example.cuteweatherv1.location.MyLocation
 import com.example.cuteweatherv1.repository.sunrise.SunriseJson
 import com.example.cuteweatherv1.repository.sunrise.data.SaveSunrise
 import com.example.cuteweatherv1.ui.sunrise.library.SetSunrise
@@ -46,7 +47,14 @@ class FragmentSunrise : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val sunriseJson = SunriseJson()
-        sunriseJson.deal()
+        var city = "beijing"
+        MyLocation.instance.city.observe(this, object : Observer<String> {
+            override fun onChanged(t: String) {
+                city = t
+                sunriseJson.deal(city)
+            }
+        })
+
         var sunrise:Int = 0
         var sunset:Int = 0
         SaveSunrise.instance.sun.observe(this,object : Observer<ArrayList<String>> {

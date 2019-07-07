@@ -21,7 +21,9 @@ import java.util.Random;
 
 
 /**
- * Created by Administrator on 2015/12/8.
+ *创建者：zzd
+ *时间：2019/7/6
+ *功能：灾害信息的绘制函数
  */
 public class TipView extends FrameLayout {
 
@@ -69,7 +71,6 @@ public class TipView extends FrameLayout {
      * @param noticeStr
      */
     public void setTipList(String noticeStr) {
-        //String a = "唐山市气象台2019年07月06日07时55分发布暴雨蓝色预警信号：预计今天白天到夜间我市部分地区将受暴雨天气影响，请有关单位和人员做好防范准备。";
         this.ANIM_DELAYED_MILLIONS = 1500;
         initAnimation();
         int i = 0;
@@ -77,6 +78,7 @@ public class TipView extends FrameLayout {
         int k = noticeStr.length() ;
         for(;i < noticeStr.length() ; ){
             if (i+22 < noticeStr.length()){
+                //滚动条一行22个字符
                 list.add(noticeStr.substring(i,i+22));
             }
             i = i+22;
@@ -88,10 +90,14 @@ public class TipView extends FrameLayout {
         updateTip(tv_tip_out);
         updateTipAndPlayAnimation();
     }
+    //设置正常的预警信息
     public void setNormalTip(){
+        //设置滚动的间隔时间
         this.ANIM_DELAYED_MILLIONS = 150000;
+        //初始化滚动条
         initAnimation();
         String a = "本城市暂无灾害预警信息";
+        //把String转换成list
         ArrayList<String> list = new ArrayList<String>();
         list.add(a);
         this.tipList = list;
@@ -99,7 +105,7 @@ public class TipView extends FrameLayout {
         updateTip(tv_tip_out);
         updateTipAndPlayAnimation();
     }
-
+    //初始化
     private void initAnimation() {
         anim_out = newAnimation(0, -1);//向上位移  动画1秒 ，间隔3秒
         anim_in = newAnimation(1, 0);//从下面出来

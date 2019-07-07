@@ -20,72 +20,61 @@ import kotlinx.android.synthetic.main.fragment_sunrise.*
 import java.util.*
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 /**
- * A simple [Fragment] subclass.
- *
+ *创建者：zzd
+ *时间：2019/7/6
+ *功能：日出日落Fragment
  */
 class FragmentSunrise : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_sunrise, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val sunriseJson = SunriseJson()
-        var city = "beijing"
+        //设置位置信息
         MyLocation.instance.city.observe(this, object : Observer<String> {
             override fun onChanged(t: String) {
-                city = t
-                sunriseJson.deal(city)
+                sunriseJson.deal(t)
             }
         })
 
-        var sunrise:Int = 0
-        var sunset:Int = 0
         SaveSunrise.instance.sun.observe(this,object : Observer<ArrayList<String>> {
             override fun onChanged(t: ArrayList<String>?) {
-
-                val textSunrise = SetSunrise()
-//                textSunrise.deal(findViewById(R.id.sun),6,18)
-//                Log.e("my","--"+ SaveSunrise.instance.sun.value!!.get(0)+"-----"+SaveSunrise.instance.sun.value!!.get(1))
                 Tsunrise.text = SaveSunrise.instance.sun.value!!.get(0)
                 Tsunset.text = SaveSunrise.instance.sun.value!!.get(1)
                 var sunriseHour = SaveSunrise.instance.sun.value!!.get(0).substring(0,2)
                 var sunsetHour = SaveSunrise.instance.sun.value!!.get(1).substring(0,2)
                 var sunriseMin = SaveSunrise.instance.sun.value!!.get(0).substring(3,5)
                 var sunsetMin = SaveSunrise.instance.sun.value!!.get(1).substring(3,5)
-                if (sunriseMin.toInt()> 30){
-                    if (sunsetMin.toInt()>30){
-                        textSunrise.deal(sun,sunriseHour.toInt()+1,sunsetHour.toInt()+1)
-                    } else {
-                        textSunrise.deal(sun,sunriseHour.toInt()+1,sunsetHour.toInt())
-                    }
-                } else {
-                    if (sunsetMin.toInt()>30){
-                        textSunrise.deal(sun,sunriseHour.toInt(),sunsetHour.toInt()+1)
-                    } else {
-                        textSunrise.deal(sun,sunriseHour.toInt(),sunsetHour.toInt())
-                    }
-                }
-                Log.e("my","-----"+sunriseHour+"--------"+sunsetHour)
+                riseAndSetDeal(sunriseHour,sunsetHour,sunriseMin,sunsetMin)
             }
 
         })
+    }
+
+    //日出日落时间处理函数
+    fun riseAndSetDeal(sunriseHour:String,sunsetHour:String,sunriseMin:String,sunsetMin:String){
+        val textSunrise = SetSunrise()
+        //判断日出和日落的分钟是否大于30，一共四种情况
+        if (sunriseMin.toInt()> 30){
+            if (sunsetMin.toInt()>30){
+                textSunrise.deal(sun,sunriseHour.toInt()+1,sunsetHour.toInt()+1)
+            } else {
+                textSunrise.deal(sun,sunriseHour.toInt()+1,sunsetHour.toInt())
+            }
+        } else {
+            if (sunsetMin.toInt()>30){
+                textSunrise.deal(sun,sunriseHour.toInt(),sunsetHour.toInt()+1)
+            } else {
+                textSunrise.deal(sun,sunriseHour.toInt(),sunsetHour.toInt())
+            }
+        }
     }
 
 

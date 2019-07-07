@@ -19,7 +19,9 @@ import com.example.cuteweatherv1.R;
 
 
 /**
- * Created by aotuman on 2017/2/23.
+ *创建者：zzd
+ *时间：2019/7/6
+ *功能：日出日落图表的绘制函数
  */
 
 public class SunriseView extends View {
@@ -160,6 +162,7 @@ public class SunriseView extends View {
         mPathPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPathPaint.setStyle(Paint.Style.STROKE);
         mPathPaint.setStrokeWidth(2);
+        //设置蓝色
         mPathPaint.setColor(Color.parseColor("#33B5E5"));
         PathEffect effects = new DashPathEffect(new float[]{10, 10, 10, 10}, 0);
         mPathPaint.setPathEffect(effects);
@@ -167,6 +170,7 @@ public class SunriseView extends View {
         //日出动画阴影部分初始化
         mAnmationPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mAnmationPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+        //设置淡蓝色
         mAnmationPaint.setColor(Color.parseColor("#3233B5E5"));
 
         //开始坐标的XY

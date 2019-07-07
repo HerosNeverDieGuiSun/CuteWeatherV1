@@ -14,51 +14,33 @@ import com.example.cuteweatherv1.repository.notice.data.SaveNotice
 import kotlinx.android.synthetic.main.fragment_notice.*
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 /**
- * A simple [Fragment] subclass.
- *
+ *创建者：zzd
+ *时间：2019/7/6
+ *功能：灾害预警信息Fragment
  */
 class FragmentNotice : Fragment() {
-    private val TIP_PREFIX = "this is tip No."
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_notice, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         var noticeJson = NoticeJson()
-        var city = "beijing"
+        //设置地理位置
         MyLocation.instance.city.observe(this, object : Observer<String> {
             override fun onChanged(t: String) {
-                city = t
-                noticeJson.deal(city)
+                noticeJson.deal(t)
             }
         })
-
+        //设置正常的提示信息，不滚动
         tip_view.setNormalTip()
         SaveNotice.instance.description.observe(this, Observer<String>{
+            //设置灾害预警信息，滚动
             tip_view.setTipList(it)
         })
-//        tip_view.setTipList("asdas")
-
-
     }
-    private fun generateTips(): ArrayList<String> {
-        val tips = ArrayList<String>()
-        for (i in 100..119) {
-            tips.add(TIP_PREFIX + i)
-        }
-        return tips
-    }
-
-
 }

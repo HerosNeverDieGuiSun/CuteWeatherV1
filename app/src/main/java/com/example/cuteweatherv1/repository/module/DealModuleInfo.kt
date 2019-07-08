@@ -6,6 +6,7 @@ import com.example.cuteweatherv1.ui.air.FragmentAir
 import com.example.cuteweatherv1.ui.daily.FragmentDaily
 import com.example.cuteweatherv1.ui.hourly.FragmentHourly
 import com.example.cuteweatherv1.ui.lifeSuggest.FragmentLife
+import com.example.cuteweatherv1.ui.notice.FragmentNotice
 import com.example.cuteweatherv1.ui.sunrise.FragmentSunrise
 
 /**
@@ -29,6 +30,7 @@ class DealModuleInfo {
         } else {
             result = true
         }
+
         return result
     }
 
@@ -37,43 +39,16 @@ class DealModuleInfo {
         val fragmentDaily = FragmentDaily()
         val fragmentHourly = FragmentHourly()
         val fragmentAir = FragmentAir()
+        val fragmentNotice = FragmentNotice()
         val fragmentSunrise = FragmentSunrise()
         val fragmentLife = FragmentLife()
         fragments.add(fragmentDaily)
         fragments.add(fragmentHourly)
         fragments.add(fragmentAir)
+        fragments.add(fragmentNotice)
         fragments.add(fragmentSunrise)
         fragments.add(fragmentLife)
 
-        val show = ArrayList<Fragment>()
-        for (i in 0..ModuleRepository.instance.data.size-1) {
-            if (ModuleRepository.instance.data[i].isOpen) {
-                show.add(fragments[i])
-            }
-        }
-        return show
-    }
-
-    // 添加
-    fun getOtherFragments():ArrayList<Fragment> {
-        var fragments = ArrayList<Fragment>()
-        val fragmentDaily = FragmentDaily()
-        val fragmentHourly = FragmentHourly()
-        val fragmentAir = FragmentAir()
-        val fragmentSunrise = FragmentSunrise()
-        val fragmentLife = FragmentLife()
-        fragments.add(fragmentDaily)
-        fragments.add(fragmentHourly)
-        fragments.add(fragmentAir)
-        fragments.add(fragmentSunrise)
-        fragments.add(fragmentLife)
-
-        val show = ArrayList<Fragment>()
-        for (i in 0..ModuleRepository.instance.data.size-1) {
-            if (!ModuleRepository.instance.data[i].isOpen) {
-                show.add(fragments[i])
-            }
-        }
-        return show
+        return fragments
     }
 }

@@ -17,7 +17,11 @@ import com.example.cuteweatherv1.repository.air.data.SaveAirDaily
 import com.example.cuteweatherv1.ui.air.library.DashboardView2
 import kotlinx.android.synthetic.main.activity_air_info.*
 import kotlinx.android.synthetic.main.fragment_air_info.*
-
+/**
+ *创建者：zzd
+ *时间：2019/7/6
+ *功能：每日空气质量Fragment
+ */
 class FragmentAirInfo : Fragment() {
     private lateinit var airViewModel: FragmentAirViewModel
 
@@ -33,33 +37,15 @@ class FragmentAirInfo : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_air_info, container, false)
-        val textView: TextView = root.findViewById(R.id.section_label)
-        val dashboardView = root.findViewById(R.id.dv) as DashboardView2
-//        airViewModel.text.observe(this, Observer<String> {
-//            textView.text = it
-//        })
-        airViewModel.airNum.observe(this, Observer<Int> {
-            dashboardView.setValue(it,true,true)
+        airViewModel.info.observe(this, Observer<ArrayList<String>> {
+            dv.setValue(it[0].toInt(),true,true)
+            Tso2.text = it[1]
+            Tco.text = it[2]
+            Tno2.text = it[3]
+            To3.text = it[4]
+            Tpm10.text = it[5]
+            Tpm2.text = it[6]
         })
-        airViewModel.so2num.observe(this, Observer<String> {
-            Tso2.text = it
-        })
-        airViewModel.conum.observe(this, Observer<String> {
-            Tco.text = it
-        })
-        airViewModel.no2num.observe(this, Observer<String> {
-            Tno2.text = it
-        })
-        airViewModel.pm10num.observe(this, Observer<String> {
-            Tpm10.text = it
-        })
-        airViewModel.pm25num.observe(this, Observer<String> {
-            Tpm2.text = it
-        })
-        airViewModel.o3num.observe(this, Observer<String> {
-            To3.text = it
-        })
-
         return root
     }
 

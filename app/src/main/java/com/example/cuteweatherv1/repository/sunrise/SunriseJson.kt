@@ -10,14 +10,24 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ *创建者：zzd
+ *时间：2019/7/6
+ *功能：日出日落api的Json处理函数
+ */
 class SunriseJson {
-    fun deal(){
+    fun deal(position:String){
+        //设置地理位置
+        var temp: String = "beijing"
+        if (position != "nul"){
+            temp = position
+        }
         val retrofit = Retrofit.Builder()
             .baseUrl(Reposition.BASEURL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(SunriseServ::class.java)
-        service.getinfo(Reposition.KEY,"nanjing")
+        service.getinfo(Reposition.KEY,temp)
             .enqueue(object : Callback<SunriseData> {
                 override fun onFailure(call: Call<SunriseData>, t: Throwable) {
                     Log.e("my","获取数据失败")
@@ -27,11 +37,7 @@ class SunriseJson {
                     var array = ArrayList<String>()
                     array.add(response.body()?.results?.get(0)?.sun!!.get(0).sunrise)
                     array.add(response.body()?.results?.get(0)?.sun!!.get(0).sunset)
-//                    array[0] = response.body()?.results?.get(0)?.sun!!.get(0).sunrise
-//                    array[1] = response.body()?.results?.get(0)?.sun!!.get(0).sunset
                     SaveSunrise.instance.sun.value = array
-//                    SaveSunrise.instance.sunrise.value = response.body()?.results?.get(0)?.sun!!.get(0).sunrise
-//                    SaveSunrise.instance.sunset.value = response.body()?.results?.get(0)?.sun!!.get(0).sunset
                 }
 
             })

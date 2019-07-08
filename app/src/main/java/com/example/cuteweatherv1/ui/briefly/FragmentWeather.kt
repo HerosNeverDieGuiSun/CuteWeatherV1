@@ -15,6 +15,7 @@ import com.example.cuteweatherv1.repository.daily.DailyOperate
 import com.example.cuteweatherv1.repository.hourly.HourlyOperate
 import com.example.cuteweatherv1.ui.briefly.data.Result
 import kotlinx.android.synthetic.main.fragment_weather.*
+import kotlin.jvm.internal.Ref
 
 /**
  * 时间：2019/7/4 11:14
@@ -41,13 +42,12 @@ class FragmentWeather : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(FragmentWeatherViewModel::class.java)
-        viewModel.getLocate()
 
         MyLocation.instance.city.observe(this, Observer<String> { t ->
             //使用新数据更新界面
             viewModel.getBriefInfo()
-            DailyOperate.instance.getDailyData()
-            HourlyOperate.instance.getHourlyInfo()
+            //DailyOperate.instance.getDailyData()
+            //HourlyOperate.instance.getHourlyInfo()
         })
 
         DailyOperate.instance.dailyInfo.observe(this, Observer<List<com.example.cuteweatherv1.repository.daily.data.Result> > {

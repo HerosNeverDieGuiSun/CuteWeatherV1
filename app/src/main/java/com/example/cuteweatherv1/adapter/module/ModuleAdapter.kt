@@ -26,6 +26,7 @@ class ModuleAdapter(
     override fun onBindViewHolder(holder: ModuleAdapter.ViewHolder, position: Int) {
         val module = data[position]
         holder.name.text = module.name
+        holder.switch_btn.isChecked = ModuleRepository.instance.data[position].isOpen
         holder.switch_btn.setOnCheckedChangeListener { view, isChecked ->
             ModuleRepository.instance.data[position].isOpen = DealModuleInfo().changeIsOpen(position)
         }

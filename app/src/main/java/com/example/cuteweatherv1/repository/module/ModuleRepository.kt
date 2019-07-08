@@ -16,7 +16,7 @@ class ModuleRepository {
         data.add(Module("实时空气质量", true))
         data.add(Module("日出日落", true))
         data.add(Module("今日建议", true))
-        data.add(Module("灾害预警", true))
+//        data.add(Module("灾害预警", true))
     }
 
     object Holder{

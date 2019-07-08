@@ -14,4 +14,6 @@
               android:label="fragment_air" tools:layout="@layout/fragment_air"/>
     <fragment android:id="@+id/fragmentSunrise" android:name="com.example.cuteweatherv1.ui.sunrise.FragmentSunrise"
               android:label="fragment_sunrise" tools:layout="@layout/fragment_sunrise"/>
+    <fragment android:id="@+id/fragmentNotice2" android:name="com.example.cuteweatherv1.ui.notice.FragmentNotice"
+              android:label="fragment_notice" tools:layout="@layout/fragment_notice"/>
 </navigation>

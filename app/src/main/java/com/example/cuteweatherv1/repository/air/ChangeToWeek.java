@@ -2,10 +2,16 @@ package com.example.cuteweatherv1.repository.air;
 
 import java.util.Calendar;
 import java.util.Date;
-
+/**
+ *创建者：zzd
+ *时间：2019/7/6
+ *功能：获取今天周几的函数
+ */
 public class ChangeToWeek {
     public int toWeek(){
+        //获取当前时间
         long time=System.currentTimeMillis();
+        //转换成date
         Date date=new Date(time);
         return parseDateToYearMonthDayWeek(date);
     }

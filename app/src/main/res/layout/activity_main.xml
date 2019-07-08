@@ -32,7 +32,7 @@
             app:layout_constraintTop_toBottomOf="@+id/toolbar" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp">
+            android:layout_marginEnd="16dp" android:fadingEdge="none" android:scrollbars="none">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:orientation="vertical">
             <fragment
@@ -114,9 +114,15 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="@+id/toolbar"
             android:layout_marginStart="10dp"/>
     <ImageView
-            android:layout_width="28dp"
-            android:layout_height="24dp" app:srcCompat="@drawable/mokuai"
+            android:layout_width="30dp"
+            android:layout_height="30dp" app:srcCompat="@drawable/mokuai"
             android:id="@+id/module_mng" android:layout_marginTop="16dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="@+id/toolbar"
             android:layout_marginEnd="8dp"/>
+    <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp" app:srcCompat="@drawable/location"
+            android:id="@+id/location_image"
+            app:layout_constraintEnd_toStartOf="@+id/module_mng" android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toTopOf="@+id/module_mng"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

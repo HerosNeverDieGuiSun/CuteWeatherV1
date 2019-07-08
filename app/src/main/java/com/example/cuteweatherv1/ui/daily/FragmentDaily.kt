@@ -45,11 +45,6 @@ class FragmentDaily : Fragment() {
         viewModel = ViewModelProviders.of(this).get(FragmentDailyViewModel::class.java)
         lineChart = chart
 
-        MyLocation.instance.defaultCity.observe(this, Observer<Boolean> {
-            if (!MyLocation.instance.defaultCity.value!!) {
-                MyLocation.instance.getLocation()
-            }
-        })
         MyLocation.instance.city.observe(this, Observer<String> {
             viewModel.getDailyInfo()
         })

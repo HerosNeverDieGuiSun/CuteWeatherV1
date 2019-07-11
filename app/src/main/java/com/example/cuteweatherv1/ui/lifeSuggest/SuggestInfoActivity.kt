@@ -14,6 +14,8 @@ import com.example.cuteweatherv1.R
 import com.example.cuteweatherv1.adapter.hourly.HourlyAdapter
 import com.example.cuteweatherv1.adapter.suggestion.SuggestionAdapter
 import com.example.cuteweatherv1.adapter.suggestion.SuggestionItemClickListener
+import com.example.cuteweatherv1.location.MyLocation
+import com.example.cuteweatherv1.repository.Reposition
 import com.example.cuteweatherv1.repository.lifeSuggestion.LifeSuggestions
 import com.example.cuteweatherv1.repository.lifeSuggestion.data.LifeSuggestion
 import kotlinx.android.synthetic.main.activity_suggest_info.*
@@ -37,7 +39,7 @@ class SuggestInfoActivity : AppCompatActivity() {
             .build()
 
         val lifeService = retrofit.create(LifeService::class.java)
-        lifeService.getInfo("SAc5cXnjG7dhZBOf_","nanjing")
+        lifeService.getInfo(Reposition.KEY,MyLocation.instance.city.value.toString())
             .enqueue(object : Callback<LifeSuggestion> {
                 override fun onFailure(call: Call<LifeSuggestion>, t: Throwable) {
                     Log.e("MyLog","获取数据失败")

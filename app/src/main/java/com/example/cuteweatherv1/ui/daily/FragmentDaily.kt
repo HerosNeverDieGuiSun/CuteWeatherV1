@@ -45,11 +45,6 @@ class FragmentDaily : Fragment() {
         viewModel = ViewModelProviders.of(this).get(FragmentDailyViewModel::class.java)
         lineChart = chart
 
-        MyLocation.instance.defaultCity.observe(this, Observer<Boolean> {
-            if (!MyLocation.instance.defaultCity.value!!) {
-                MyLocation.instance.getLocation()
-            }
-        })
         MyLocation.instance.city.observe(this, Observer<String> {
             viewModel.getDailyInfo()
         })
@@ -130,7 +125,7 @@ class FragmentDaily : Fragment() {
             lineChart.xAxis.isEnabled = false
             lineChart.axisLeft.isEnabled = false
             lineChart.axisRight.isEnabled = false
-            lineChart.animateX(1500)
+            //lineChart.animateX(1500)
             lineChart.invalidate()
         })
     }

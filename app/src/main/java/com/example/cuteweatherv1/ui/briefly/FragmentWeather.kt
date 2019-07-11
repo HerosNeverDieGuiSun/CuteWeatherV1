@@ -42,15 +42,6 @@ class FragmentWeather : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(FragmentWeatherViewModel::class.java)
-        if (!MyLocation.instance.defaultCity.value!!) {
-            viewModel.getLocate()
-        }
-
-        MyLocation.instance.defaultCity.observe(this, Observer<Boolean> {
-            if (!MyLocation.instance.defaultCity.value!!) {
-                viewModel.getLocate()
-            }
-        })
 
         MyLocation.instance.city.observe(this, Observer<String> { t ->
             //使用新数据更新界面

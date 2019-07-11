@@ -40,11 +40,6 @@ class FragmentHourly : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(FragmentHourlyViewModel::class.java)
 
-        MyLocation.instance.defaultCity.observe(this, Observer<Boolean> {
-            if (!MyLocation.instance.defaultCity.value!!) {
-                MyLocation.instance.getLocation()
-            }
-        })
         MyLocation.instance.city.observe(this, Observer<String> {
             viewModel.getHourlyInfo()
         })

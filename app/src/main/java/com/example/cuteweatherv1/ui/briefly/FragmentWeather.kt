@@ -77,7 +77,7 @@ class FragmentWeather : Fragment() {
 
             when (it?.now?.text) {
                 "晴" -> weatherIcon.setImageResource(R.drawable.weather_sunny_big)
-                "多云" -> weatherIcon.setImageResource(R.drawable.weather_cloudy_big)
+                "多云", "晴间多云" -> weatherIcon.setImageResource(R.drawable.weather_cloudy_big)
                 "阴" -> weatherIcon.setImageResource(R.drawable.weather_overcast_big)
                 "阵雨" -> weatherIcon.setImageResource(R.drawable.weather_rain_shower_big)
                 "雷阵雨" -> weatherIcon.setImageResource(R.drawable.weather_thundershower_big)

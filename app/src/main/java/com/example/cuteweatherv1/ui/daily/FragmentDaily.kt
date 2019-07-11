@@ -138,7 +138,7 @@ class FragmentDaily : Fragment() {
     private fun setImage(daily : String?, id : ImageView) {
         when (daily) {
             "晴" -> id.setImageResource(R.drawable.weather_sunny_grey)
-            "多云" -> id.setImageResource(R.drawable.weather_cloudy_grey)
+            "多云", "晴间多云" -> id.setImageResource(R.drawable.weather_cloudy_grey)
             "阴" -> id.setImageResource(R.drawable.weather_overcast_grey)
             "阵雨" -> id.setImageResource(R.drawable.weather_rain_shower_grey)
             "雷阵雨" -> id.setImageResource(R.drawable.weather_thundershower_grey)

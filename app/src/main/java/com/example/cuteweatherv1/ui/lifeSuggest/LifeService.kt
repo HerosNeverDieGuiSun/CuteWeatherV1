@@ -1,7 +1,7 @@
 package com.example.cuteweatherv1.ui.lifeSuggest
 
+import com.example.cuteweatherv1.repository.lifeSuggestion.data.LifeSuggestion
 import retrofit2.Call
-import com.example.cuteweatherv1.data.lifeSuggestion.LifeSuggestion
 import retrofit2.http.GET
 import retrofit2.http.Query
 

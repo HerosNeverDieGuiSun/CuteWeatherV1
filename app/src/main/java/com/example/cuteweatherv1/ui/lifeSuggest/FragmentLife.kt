@@ -10,7 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.cuteweatherv1.R
-import com.example.cuteweatherv1.data.lifeSuggestion.LifeSuggestion
+import com.example.cuteweatherv1.repository.lifeSuggestion.LifeSuggestions
+import com.example.cuteweatherv1.repository.lifeSuggestion.data.LifeSuggestion
 import kotlinx.android.synthetic.main.fragment_life.*
 import retrofit2.Call
 import retrofit2.Callback

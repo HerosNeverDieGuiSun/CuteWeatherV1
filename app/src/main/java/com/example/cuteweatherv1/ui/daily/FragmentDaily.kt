@@ -125,7 +125,7 @@ class FragmentDaily : Fragment() {
             lineChart.xAxis.isEnabled = false
             lineChart.axisLeft.isEnabled = false
             lineChart.axisRight.isEnabled = false
-            lineChart.animateX(1500)
+            //lineChart.animateX(1500)
             lineChart.invalidate()
         })
     }

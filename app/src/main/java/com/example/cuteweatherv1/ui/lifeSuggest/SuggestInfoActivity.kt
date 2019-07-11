@@ -9,6 +9,7 @@ package com.example.cuteweatherv1.ui.lifeSuggest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cuteweatherv1.R
 import com.example.cuteweatherv1.adapter.hourly.HourlyAdapter
 import com.example.cuteweatherv1.adapter.suggestion.SuggestionAdapter
@@ -16,6 +17,7 @@ import com.example.cuteweatherv1.adapter.suggestion.SuggestionItemClickListener
 import com.example.cuteweatherv1.repository.lifeSuggestion.LifeSuggestions
 import com.example.cuteweatherv1.repository.lifeSuggestion.data.LifeSuggestion
 import kotlinx.android.synthetic.main.activity_suggest_info.*
+import kotlinx.android.synthetic.main.fragment_hourly.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -75,7 +77,7 @@ class SuggestInfoActivity : AppCompatActivity() {
                         response.body()?.results?.get(0)?.suggestion?.traffic?.details!! ?: "无"))
                     suggestionAdapter = SuggestionAdapter(applicationContext, R.layout.suggestion_item, data)
                     suggestRV.adapter = suggestionAdapter
-
+                    suggestRV.layoutManager = LinearLayoutManager(applicationContext)
                 }
             })
     }

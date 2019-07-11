@@ -4,17 +4,21 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/fragmentAir"
         tools:context=".ui.air.FragmentAir">
 
     <androidx.cardview.widget.CardView
             android:id="@+id/aircv"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             app:cardBackgroundColor="@android:color/background_light"
             android:layout_centerInParent="true"
             app:cardCornerRadius="12dp"
             android:elevation="8dp"
-            tools:ignore="MissingConstraints" android:background="@color/cp_colorAccent">
+            tools:ignore="MissingConstraints" android:background="@color/cp_colorAccent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent">
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -26,7 +30,8 @@
                     tools:ignore="MissingConstraints"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent" android:background="@android:color/background_light"
-                    android:layout_marginStart="16dp" android:layout_marginBottom="16dp"/>
+                    android:layout_marginStart="16dp" android:layout_marginBottom="16dp" android:layout_marginTop="32dp"
+                    app:layout_constraintTop_toTopOf="parent"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -52,7 +57,8 @@
                     android:text="更新时间：07-15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/airtime" android:textSize="@dimen/update" app:layout_constraintStart_toEndOf="@+id/dv1"
+                    android:id="@+id/airtime" android:textSize="@dimen/update"
+                    app:layout_constraintStart_toEndOf="@+id/dv1"
                     android:layout_marginStart="24dp"
                     android:layout_marginBottom="8dp"
                     app:layout_constraintBottom_toBottomOf="parent" android:layout_marginEnd="8dp"

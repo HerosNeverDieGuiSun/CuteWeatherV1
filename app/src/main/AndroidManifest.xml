@@ -60,7 +60,7 @@
         </activity>
 
         <service android:name="com.amap.api.location.APSService"></service>
-        <meta-data android:name="com.amap.api.v2.apikey" android:value="4b7b528971354d9b6dbfe9c2cb2cdf1b">
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="ccb1eadb127aeda12fa5ecf86b642829">
 
         </meta-data>
 

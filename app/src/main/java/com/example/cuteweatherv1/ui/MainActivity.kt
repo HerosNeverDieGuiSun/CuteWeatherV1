@@ -1,31 +1,58 @@
 package com.example.cuteweatherv1.ui
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
+import android.content.pm.PackageManager
 import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.util.Log
 import android.view.Menu
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.amap.api.location.AMapLocation
 import com.amap.api.location.AMapLocationClient
 import com.amap.api.location.AMapLocationClientOption
 import com.amap.api.location.AMapLocationListener
 import com.example.cuteweatherv1.R
 import com.example.cuteweatherv1.location.MyLocation
+import com.example.cuteweatherv1.repository.module.DealModuleInfo
+import com.example.cuteweatherv1.repository.module.ModuleRepository
 import com.example.cuteweatherv1.ui.city.CityMngActivity
+import com.example.cuteweatherv1.ui.air.FragmentAir
+import com.example.cuteweatherv1.ui.daily.FragmentDaily
+import com.example.cuteweatherv1.ui.hourly.FragmentHourly
+import com.example.cuteweatherv1.ui.lifeSuggest.FragmentLife
 import com.example.cuteweatherv1.ui.module.ModuleMngActivity
+import com.example.cuteweatherv1.ui.notice.FragmentNotice
+import com.example.cuteweatherv1.ui.sunrise.FragmentSunrise
 import com.gyf.immersionbar.ImmersionBar
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity(), AMapLocationListener {
+
+    lateinit var sharedPreferences: SharedPreferences
 
     //声明AMapLocationClient类对象
     lateinit var mLocationClient : AMapLocationClient
     //声明AMapLocationClientOption对象
     lateinit var mLocationOption : AMapLocationClientOption
+
+    var fragments = ArrayList<Fragment>()
+    val fragmentDaily = FragmentDaily()
+    val fragmentHourly = FragmentHourly()
+    val fragmentAir = FragmentAir()
+    val fragmentNotice = FragmentNotice()
+    val fragmentSunrise = FragmentSunrise()
+    val fragmentLife = FragmentLife()
+
 
     override fun onLocationChanged(amapLocation: AMapLocation?) {
         if (amapLocation != null) {
@@ -41,7 +68,23 @@ class MainActivity : AppCompatActivity(), AMapLocationListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
         setContentView(R.layout.activity_main)
+
+
+        // 取本地功能开关状态数据
+        ModuleRepository.instance.data[0].isOpen = sharedPreferences.getBoolean("day", true)
+        Log.e("mylocal", ModuleRepository.instance.data[0].isOpen.toString())
+        ModuleRepository.instance.data[1].isOpen = sharedPreferences.getBoolean("hour", true)
+        Log.e("mylocal", ModuleRepository.instance.data[1].isOpen.toString())
+        ModuleRepository.instance.data[2].isOpen = sharedPreferences.getBoolean("air", true)
+        Log.e("mylocal", ModuleRepository.instance.data[2].isOpen.toString())
+        ModuleRepository.instance.data[3].isOpen = sharedPreferences.getBoolean("notice", true)
+        Log.e("mylocal", ModuleRepository.instance.data[3].isOpen.toString())
+        ModuleRepository.instance.data[4].isOpen = sharedPreferences.getBoolean("sun", true)
+        Log.e("mylocal", ModuleRepository.instance.data[4].isOpen.toString())
+        ModuleRepository.instance.data[5].isOpen = sharedPreferences.getBoolean("sug", true)
+        Log.e("mylocal", ModuleRepository.instance.data[5].isOpen.toString())
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -59,6 +102,11 @@ class MainActivity : AppCompatActivity(), AMapLocationListener {
         }
 
         ImmersionBar.with(this).statusBarColor(R.color.colorPrimary).init()
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
+        }
 
         //初始化定位
         mLocationClient = AMapLocationClient(applicationContext)
@@ -88,10 +136,89 @@ class MainActivity : AppCompatActivity(), AMapLocationListener {
                 Toast.makeText(applicationContext, "GPS未开启,请开启GPS再使用", Toast.LENGTH_SHORT).show()
             }
         }
+
+        // 显示功能模块
+        fragments.add(fragmentDaily)
+        fragments.add(fragmentHourly)
+        fragments.add(fragmentAir)
+        fragments.add(fragmentNotice)
+        fragments.add(fragmentSunrise)
+        fragments.add(fragmentLife)
+
+        val show = ArrayList<Fragment>()
+        for (i in 0..ModuleRepository.instance.data.size-1) {
+            if (ModuleRepository.instance.data[i].isOpen) {
+                show.add(fragments[i])
+            }
+        }
+
+        for (i in 0..show.size-1) {
+            supportFragmentManager.beginTransaction().add(DealModuleInfo().containers[i], show.get(i)).commit()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+
+    override fun onResume() {
+        for (i in 0..DealModuleInfo().getAllFragments().size-1) {
+            when (i) {
+                0 -> {
+                    if (!ModuleRepository.instance.data[i].isOpen)
+                        supportFragmentManager.beginTransaction().hide(fragmentDaily).commit()
+                    else
+                        supportFragmentManager.beginTransaction().show(fragmentDaily).commit()
+                }
+                1 -> {
+                    if (!ModuleRepository.instance.data[i].isOpen)
+                        supportFragmentManager.beginTransaction().hide(fragmentHourly).commit()
+                    else
+                        supportFragmentManager.beginTransaction().show(fragmentHourly).commit()
+                }
+                2 -> {
+                    if (!ModuleRepository.instance.data[i].isOpen)
+                        supportFragmentManager.beginTransaction().hide(fragmentAir).commit()
+                    else
+                        supportFragmentManager.beginTransaction().show(fragmentAir).commit()
+                }
+                3 -> {
+                    if (!ModuleRepository.instance.data[i].isOpen)
+                        supportFragmentManager.beginTransaction().hide(fragmentNotice).commit()
+                    else
+                        supportFragmentManager.beginTransaction().show(fragmentNotice).commit()
+                }
+                4 -> {
+                    if (!ModuleRepository.instance.data[i].isOpen)
+                        supportFragmentManager.beginTransaction().hide(fragmentSunrise).commit()
+                    else
+                        supportFragmentManager.beginTransaction().show(fragmentSunrise).commit()
+                }
+                5 -> {
+                    if (!ModuleRepository.instance.data[i].isOpen)
+                        supportFragmentManager.beginTransaction().hide(fragmentLife).commit()
+                    else
+                        supportFragmentManager.beginTransaction().show(fragmentLife).commit()
+                }
+            }
+        }
+
+        super.onResume()
+    }
+
+    override fun onDestroy() {
+
+        val edit = sharedPreferences.edit()
+        edit.putBoolean("day", ModuleRepository.instance.data[0].isOpen)
+        edit.putBoolean("hour", ModuleRepository.instance.data[1].isOpen)
+        edit.putBoolean("air", ModuleRepository.instance.data[2].isOpen)
+        edit.putBoolean("notice", ModuleRepository.instance.data[3].isOpen)
+        edit.putBoolean("sun", ModuleRepository.instance.data[4].isOpen)
+        edit.putBoolean("sug", ModuleRepository.instance.data[5].isOpen)
+        edit.commit()
+
+        super.onDestroy()
     }
 }

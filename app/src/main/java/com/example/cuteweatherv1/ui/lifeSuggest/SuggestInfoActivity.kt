@@ -44,7 +44,6 @@ class SuggestInfoActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<LifeSuggestion>, t: Throwable) {
                     Log.e("MyLog","获取数据失败")
                 }
-
                 override fun onResponse(call: Call<LifeSuggestion>, response: Response<LifeSuggestion>) {
                     val data =  ArrayList<LifeSuggestions>()
                     data.add(LifeSuggestions(R.drawable.wear3,"穿衣",

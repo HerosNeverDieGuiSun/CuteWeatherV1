@@ -1,6 +1,7 @@
 package com.example.cuteweatherv1.ui.lifeSuggest
 
 import androidx.lifecycle.ViewModel;
+import com.example.cuteweatherv1.repository.lifeSuggestion.SuggestRepositoy
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -11,21 +12,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class FragmentLifeViewModel : ViewModel() {
     // TODO: Implement the ViewModel
-    val retrofit = Retrofit.Builder()
-        .baseUrl("https://api.seniverse.com/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-
-    val lifeService = retrofit.create(LifeService::class.java)
-
-
-
-
-
-
-
-
-
-
+    private val repository = SuggestRepositoy.instance
+    fun getInfo(){
+        repository.getSuggestionInfo()
+    }
 
 }

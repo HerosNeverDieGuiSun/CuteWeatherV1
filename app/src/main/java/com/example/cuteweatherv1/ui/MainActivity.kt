@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity(), AMapLocationListener {
 
 
         // 取本地功能开关状态数据
-        ModuleRepository.instance.data[0].isOpen = sharedPreferences.getBoolean(Reposition.CITYKEY, true)
+        ModuleRepository.instance.data[0].isOpen = sharedPreferences.getBoolean(Reposition.DAYKEY, true)
         Log.e("mylocal", ModuleRepository.instance.data[0].isOpen.toString())
         ModuleRepository.instance.data[1].isOpen = sharedPreferences.getBoolean(Reposition.HOURKEY, true)
         Log.e("mylocal", ModuleRepository.instance.data[1].isOpen.toString())

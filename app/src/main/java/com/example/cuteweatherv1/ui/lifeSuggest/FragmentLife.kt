@@ -62,7 +62,6 @@ class FragmentLife : Fragment() {
         // TODO: Use the ViewModel
 
 
-
         suggestView.setOnClickListener {
             val intent = Intent()
             intent.setClass(activity?.applicationContext, SuggestInfoActivity::class.java)

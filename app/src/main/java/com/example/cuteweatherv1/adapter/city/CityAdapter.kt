@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cuteweatherv1.R
+import com.example.cuteweatherv1.repository.Reposition
 import com.example.cuteweatherv1.repository.city.CityService
 import com.example.cuteweatherv1.repository.city.DealCityInfo
 import com.example.cuteweatherv1.repository.city.data.City
@@ -36,13 +37,13 @@ class CityAdapter(
         val city = data[position]
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.seniverse.com")
+            .baseUrl(Reposition.BASEURL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(CityService::class.java)
 
 
-        service.getInfo("SAc5cXnjG7dhZBOf_", city.name)
+        service.getInfo(Reposition.KEY, city.name)
             .enqueue(object : Callback<City> {
                 override fun onFailure(call: Call<City>, t: Throwable) {
                     Log.e("MyLog", "获取数据失败")

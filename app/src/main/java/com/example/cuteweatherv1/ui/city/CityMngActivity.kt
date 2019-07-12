@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.activity_city_mng.*
 import android.widget.TextView
 import android.graphics.Color
 import com.example.cuteweatherv1.location.MyLocation
+import com.example.cuteweatherv1.repository.Reposition
 
 
 /**
@@ -45,7 +46,7 @@ class CityMngActivity : AppCompatActivity() {
             CityRepository.instance.data[0] = CityInfo(MyLocation.instance.presentCity, "", "", "", "", "", "", "")
         }
 
-        val saveData = sharedPreferences.getString("city", null)
+        val saveData = sharedPreferences.getString(Reposition.CITYKEY, null)
         if (saveData != null){
             val city = saveData.split(",".toRegex())
             for(i in city) {
@@ -83,11 +84,11 @@ class CityMngActivity : AppCompatActivity() {
                                         }
                                         content.deleteCharAt(content.length - 1)
                                         val edit = sharedPreferences.edit()
-                                        edit.putString("city", content.toString()).commit()
+                                        edit.putString(Reposition.CITYKEY, content.toString()).commit()
                                     }
                                     else {
                                         val edit = sharedPreferences.edit()
-                                        edit.remove("city").commit()
+                                        edit.remove(Reposition.CITYKEY).commit()
                                     }
                                     adapter.notifyDataSetChanged()
                                 } else {

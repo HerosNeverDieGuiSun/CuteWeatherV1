@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.cuteweatherv1.R
+import com.example.cuteweatherv1.location.MyLocation
+import com.example.cuteweatherv1.repository.Reposition
 import com.example.cuteweatherv1.repository.lifeSuggestion.LifeSuggestions
 import com.example.cuteweatherv1.repository.lifeSuggestion.data.LifeSuggestion
 import kotlinx.android.synthetic.main.fragment_life.*
@@ -41,7 +43,7 @@ class FragmentLife : Fragment() {
         viewModel = ViewModelProviders.of(this).get(FragmentLifeViewModel::class.java)
         // TODO: Use the ViewModel
         val suggestion = viewModel.lifeService
-        suggestion.getInfo("SAc5cXnjG7dhZBOf_","nanjing")
+        suggestion.getInfo(Reposition.KEY, "南京")
             .enqueue(object : Callback<LifeSuggestion> {
                 override fun onFailure(call: Call<LifeSuggestion>, t: Throwable) {
                     Log.e("MyLog","获取数据失败")

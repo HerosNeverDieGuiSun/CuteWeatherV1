@@ -22,6 +22,7 @@ import com.amap.api.location.AMapLocationClientOption
 import com.amap.api.location.AMapLocationListener
 import com.example.cuteweatherv1.R
 import com.example.cuteweatherv1.location.MyLocation
+import com.example.cuteweatherv1.repository.Reposition
 import com.example.cuteweatherv1.repository.module.DealModuleInfo
 import com.example.cuteweatherv1.repository.module.ModuleRepository
 import com.example.cuteweatherv1.ui.city.CityMngActivity
@@ -73,17 +74,17 @@ class MainActivity : AppCompatActivity(), AMapLocationListener {
 
 
         // 取本地功能开关状态数据
-        ModuleRepository.instance.data[0].isOpen = sharedPreferences.getBoolean("day", true)
+        ModuleRepository.instance.data[0].isOpen = sharedPreferences.getBoolean(Reposition.CITYKEY, true)
         Log.e("mylocal", ModuleRepository.instance.data[0].isOpen.toString())
-        ModuleRepository.instance.data[1].isOpen = sharedPreferences.getBoolean("hour", true)
+        ModuleRepository.instance.data[1].isOpen = sharedPreferences.getBoolean(Reposition.HOURKEY, true)
         Log.e("mylocal", ModuleRepository.instance.data[1].isOpen.toString())
-        ModuleRepository.instance.data[2].isOpen = sharedPreferences.getBoolean("air", true)
+        ModuleRepository.instance.data[2].isOpen = sharedPreferences.getBoolean(Reposition.AIRKEY, true)
         Log.e("mylocal", ModuleRepository.instance.data[2].isOpen.toString())
-        ModuleRepository.instance.data[3].isOpen = sharedPreferences.getBoolean("notice", true)
+        ModuleRepository.instance.data[3].isOpen = sharedPreferences.getBoolean(Reposition.NOTICEKEY, true)
         Log.e("mylocal", ModuleRepository.instance.data[3].isOpen.toString())
-        ModuleRepository.instance.data[4].isOpen = sharedPreferences.getBoolean("sun", true)
+        ModuleRepository.instance.data[4].isOpen = sharedPreferences.getBoolean(Reposition.SUNKEY, true)
         Log.e("mylocal", ModuleRepository.instance.data[4].isOpen.toString())
-        ModuleRepository.instance.data[5].isOpen = sharedPreferences.getBoolean("sug", true)
+        ModuleRepository.instance.data[5].isOpen = sharedPreferences.getBoolean(Reposition.SUGKEY, true)
         Log.e("mylocal", ModuleRepository.instance.data[5].isOpen.toString())
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
@@ -211,12 +212,12 @@ class MainActivity : AppCompatActivity(), AMapLocationListener {
     override fun onDestroy() {
 
         val edit = sharedPreferences.edit()
-        edit.putBoolean("day", ModuleRepository.instance.data[0].isOpen)
-        edit.putBoolean("hour", ModuleRepository.instance.data[1].isOpen)
-        edit.putBoolean("air", ModuleRepository.instance.data[2].isOpen)
-        edit.putBoolean("notice", ModuleRepository.instance.data[3].isOpen)
-        edit.putBoolean("sun", ModuleRepository.instance.data[4].isOpen)
-        edit.putBoolean("sug", ModuleRepository.instance.data[5].isOpen)
+        edit.putBoolean(Reposition.DAYKEY, ModuleRepository.instance.data[0].isOpen)
+        edit.putBoolean(Reposition.HOURKEY, ModuleRepository.instance.data[1].isOpen)
+        edit.putBoolean(Reposition.AIRKEY, ModuleRepository.instance.data[2].isOpen)
+        edit.putBoolean(Reposition.NOTICEKEY, ModuleRepository.instance.data[3].isOpen)
+        edit.putBoolean(Reposition.SUNKEY, ModuleRepository.instance.data[4].isOpen)
+        edit.putBoolean(Reposition.SUGKEY, ModuleRepository.instance.data[5].isOpen)
         edit.commit()
 
         super.onDestroy()

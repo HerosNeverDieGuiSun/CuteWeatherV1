@@ -9,6 +9,7 @@ import android.preference.PreferenceManager
 import android.widget.Toast
 import com.example.cuteweatherv1.R
 import com.example.cuteweatherv1.location.MyLocation
+import com.example.cuteweatherv1.repository.Reposition
 import com.example.cuteweatherv1.repository.city.CityRepository
 import com.example.cuteweatherv1.repository.city.DealCityInfo
 import com.example.cuteweatherv1.repository.city.data.CityInfo
@@ -54,12 +55,12 @@ class CityChooseActivity : AppCompatActivity() {
                             CityInfo(data.name, "", "", "", "", "", "", "")
                         )
                         val edit = sharedPreferences.edit()
-                        var content = sharedPreferences.getString("city", "")
+                        var content = sharedPreferences.getString(Reposition.CITYKEY, "")
                         if (content != "") {
                             content += ","
                         }
                         content += data.name
-                        edit.putString("city", content).commit()
+                        edit.putString(Reposition.CITYKEY, content).commit()
                         finish()
                     } else {
                         finish()

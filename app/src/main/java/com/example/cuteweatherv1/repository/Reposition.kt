@@ -8,7 +8,7 @@ class Reposition {
     }
     companion object {
         val instance = Holder.INSTANCE
-        const val KEY = "SAc5cXnjG7dhZBOf_"
+        const val KEY = "S7Uje_wKeJ0K44HJF"
         const val GPSKEY = "755cd948c3e6001929399bff71202268"
         const val GPSURL = "http://apis.juhe.cn/"
         const val BASEURL = "https://api.seniverse.com/"
